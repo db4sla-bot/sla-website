@@ -96,29 +96,74 @@ const OurProcess = () => {
           {/* Curved Road Path */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <svg 
-              viewBox="0 0 800 1200" 
-              className="w-full max-w-md lg:max-w-lg h-auto opacity-20"
-              style={{ maxHeight: '800px' }}
+              viewBox="0 0 800 1400" 
+              className="w-full max-w-lg lg:max-w-xl h-auto opacity-60"
+              style={{ maxHeight: '1000px' }}
             >
+              {/* Main Road */}
               <path
-                d="M400 50 
-                   C 200 150, 200 200, 400 250
-                   C 600 300, 600 350, 400 400
-                   C 200 450, 200 500, 400 550
-                   C 600 600, 600 650, 400 700
-                   C 200 750, 200 800, 400 850
-                   C 600 900, 600 950, 400 1000
-                   C 200 1050, 200 1100, 400 1150"
-                stroke="#1f2937"
-                strokeWidth="40"
+                d="M400 80 
+                   C 180 180, 180 240, 400 320
+                   C 620 400, 620 480, 400 560
+                   C 180 640, 180 720, 400 800
+                   C 620 880, 620 960, 400 1040
+                   C 180 1120, 180 1200, 400 1280"
+                stroke="#374151"
+                strokeWidth="50"
                 fill="none"
-                strokeDasharray="20 10"
               />
+              {/* Road Center Line */}
+              <path
+                d="M400 80 
+                   C 180 180, 180 240, 400 320
+                   C 620 400, 620 480, 400 560
+                   C 180 640, 180 720, 400 800
+                   C 620 880, 620 960, 400 1040
+                   C 180 1120, 180 1200, 400 1280"
+                stroke="#FBBF24"
+                strokeWidth="4"
+                fill="none"
+                strokeDasharray="30 20"
+              />
+              {/* Road Edges */}
+              <path
+                d="M400 80 
+                   C 180 180, 180 240, 400 320
+                   C 620 400, 620 480, 400 560
+                   C 180 640, 180 720, 400 800
+                   C 620 880, 620 960, 400 1040
+                   C 180 1120, 180 1200, 400 1280"
+                stroke="#1F2937"
+                strokeWidth="6"
+                fill="none"
+                transform="translate(-22, 0)"
+              />
+              <path
+                d="M400 80 
+                   C 180 180, 180 240, 400 320
+                   C 620 400, 620 480, 400 560
+                   C 180 640, 180 720, 400 800
+                   C 620 880, 620 960, 400 1040
+                   C 180 1120, 180 1200, 400 1280"
+                stroke="#1F2937"
+                strokeWidth="6"
+                fill="none"
+                transform="translate(22, 0)"
+              />
+              {/* Road Markers */}
+              <circle cx="400" cy="140" r="8" fill="#EF4444" opacity="0.8"/>
+              <circle cx="300" cy="220" r="8" fill="#EF4444" opacity="0.8"/>
+              <circle cx="500" cy="380" r="8" fill="#EF4444" opacity="0.8"/>
+              <circle cx="300" cy="520" r="8" fill="#EF4444" opacity="0.8"/>
+              <circle cx="500" cy="680" r="8" fill="#EF4444" opacity="0.8"/>
+              <circle cx="300" cy="820" r="8" fill="#EF4444" opacity="0.8"/>
+              <circle cx="500" cy="980" r="8" fill="#EF4444" opacity="0.8"/>
+              <circle cx="400" cy="1120" r="8" fill="#EF4444" opacity="0.8"/>
             </svg>
           </div>
 
           {/* Process Steps */}
-          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
             {processSteps.map((step, index) => (
               <motion.div
                 key={step.id}
@@ -127,8 +172,8 @@ const OurProcess = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 className={`
-                  relative bg-white rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 card-hover
-                  ${index % 2 === 0 ? 'md:mr-8 lg:mr-12' : 'md:ml-8 lg:ml-12'}
+                  relative bg-white rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 card-hover mb-6 lg:mb-8
+                  ${index % 2 === 0 ? 'md:mr-12 lg:mr-16' : 'md:ml-12 lg:ml-16'}
                 `}
               >
                 {/* Step Number */}
@@ -158,9 +203,9 @@ const OurProcess = () => {
                 {index < processSteps.length - 1 && (
                   <div className={`
                     hidden md:block absolute top-1/2 transform -translate-y-1/2
-                    ${index % 2 === 0 ? '-right-6 lg:-right-8' : '-left-6 lg:-left-8'}
+                    ${index % 2 === 0 ? '-right-8 lg:-right-10' : '-left-8 lg:-left-10'}
                   `}>
-                    <div className="w-4 h-4 bg-[var(--primary-color)] rotate-45 shadow-lg"></div>
+                    <div className="w-6 h-6 bg-[var(--primary-color)] rotate-45 shadow-lg"></div>
                   </div>
                 )}
               </motion.div>
