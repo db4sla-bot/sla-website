@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import HeroSlider from '../components/HeroSlider';
 import VideoSlider from '../components/VideoSlider';
+import OurProcess from '../components/OurProcess';
 
 const Home = () => {
   const services = [
@@ -604,6 +605,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Our Process Section */}
+      <OurProcess />
 
       {/* CTA Section */}
       <section className="py-16 lg:py-24 gradient-bg">
