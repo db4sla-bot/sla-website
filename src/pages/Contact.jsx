@@ -62,7 +62,7 @@ const Contact = () => {
   return (
     <div className="animate-fade-in">
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 gradient-bg">
+      <section className="relative py-12 sm:py-20 lg:py-32 gradient-bg">
         <div className="absolute inset-0 bg-black opacity-10"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
@@ -70,10 +70,10 @@ const Contact = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 text-shadow">
+            <h1 className="text-2xl sm:text-4xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 text-shadow">
               Contact Us
             </h1>
-            <p className="text-xl lg:text-2xl text-blue-100 max-w-3xl mx-auto">
+            <p className="text-base sm:text-xl lg:text-2xl text-blue-100 max-w-3xl mx-auto">
               Ready to protect your home? Get in touch for a free consultation and personalized quote
             </p>
           </motion.div>
@@ -81,20 +81,20 @@ const Contact = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-16 lg:py-24">
+      <section className="py-12 sm:py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
             {/* Contact Form */}
             <motion.div
               variants={fadeInUp}
               initial="initial"
               animate="animate"
-              className="bg-white rounded-2xl shadow-xl p-8"
+              className="bg-white rounded-2xl shadow-xl p-6 sm:p-8"
             >
-              <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">
                 Get Your Free Quote
               </h2>
-              <p className="text-gray-600 mb-8">
+              <p className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8">
                 Fill out the form below and we'll get back to you within 24 hours with a detailed quotation.
               </p>
 
@@ -115,8 +115,8 @@ const Contact = () => {
                 </motion.div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                       Full Name *
@@ -128,7 +128,7 @@ const Contact = () => {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent transition-all duration-200"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent transition-all duration-200"
                       placeholder="Your full name"
                     />
                   </div>
@@ -143,7 +143,7 @@ const Contact = () => {
                       required
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent transition-all duration-200"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent transition-all duration-200"
                       placeholder="+91 98765 43210"
                     />
                   </div>
@@ -160,7 +160,7 @@ const Contact = () => {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent transition-all duration-200"
+                    className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent transition-all duration-200"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -175,7 +175,7 @@ const Contact = () => {
                     required
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent transition-all duration-200 cursor-pointer"
+                    className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent transition-all duration-200 cursor-pointer"
                   >
                     <option value="">Select a service</option>
                     {services.map((service, index) => (
@@ -196,7 +196,7 @@ const Contact = () => {
                     rows={4}
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent transition-all duration-200 resize-none"
+                    className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent transition-all duration-200 resize-none"
                     placeholder="Tell us about your project requirements, property details, and preferred installation timeline..."
                   ></textarea>
                 </div>
@@ -204,11 +204,11 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-[var(--primary-color)] text-white py-4 px-6 rounded-lg font-semibold text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none cursor-pointer"
+                  className="w-full bg-[var(--primary-color)] text-white py-3 sm:py-4 px-4 sm:px-6 rounded-lg font-semibold text-base sm:text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none cursor-pointer"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center justify-center">
-                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <svg className="animate-spin -ml-1 mr-3 h-4 sm:h-5 w-4 sm:w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                       </svg>
@@ -227,21 +227,21 @@ const Contact = () => {
               initial="initial"
               animate="animate"
               transition={{ delay: 0.2 }}
-              className="space-y-8"
+              className="space-y-6 sm:space-y-8"
             >
               <div>
-                <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">
                   Get in Touch
                 </h2>
-                <p className="text-lg text-gray-600 mb-8">
+                <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-6 sm:mb-8">
                   We're here to help you find the perfect protection solution for your home. 
                   Reach out to us through any of the following channels.
                 </p>
               </div>
 
               {/* Contact Cards */}
-              <div className="space-y-6">
-                <div className="bg-white rounded-xl p-6 shadow-lg card-hover">
+              <div className="space-y-4 sm:space-y-6">
+                <div className="bg-white rounded-xl p-4 sm:p-6 shadow-lg card-hover">
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-[var(--primary-color)] rounded-lg flex items-center justify-center flex-shrink-0">
                       <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -249,44 +249,44 @@ const Contact = () => {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">Phone</h3>
-                      <p className="text-gray-600 mb-2">Call us for immediate assistance</p>
-                      <a href="tel:+919876543210" className="text-[var(--primary-color)] font-medium hover:underline">
+                      <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-1 sm:mb-2">Phone</h3>
+                      <p className="text-sm sm:text-base text-gray-600 mb-1 sm:mb-2">Call us for immediate assistance</p>
+                      <a href="tel:+919876543210" className="text-[var(--primary-color)] font-medium hover:underline text-sm sm:text-base cursor-pointer">
                         +91 98765 43210
                       </a>
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-white rounded-xl p-6 shadow-lg card-hover">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-[var(--primary-color)] rounded-lg flex items-center justify-center flex-shrink-0">
-                      <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <div className="bg-white rounded-xl p-4 sm:p-6 shadow-lg card-hover">
+                  <div className="flex items-start space-x-3 sm:space-x-4">
+                    <div className="w-10 sm:w-12 h-10 sm:h-12 bg-[var(--primary-color)] rounded-lg flex items-center justify-center flex-shrink-0">
+                      <svg className="w-5 sm:w-6 h-5 sm:h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                         <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">Email</h3>
-                      <p className="text-gray-600 mb-2">Send us your detailed requirements</p>
-                      <a href="mailto:info@slainvisiblegrills.com" className="text-[var(--primary-color)] font-medium hover:underline">
+                      <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-1 sm:mb-2">Email</h3>
+                      <p className="text-sm sm:text-base text-gray-600 mb-1 sm:mb-2">Send us your detailed requirements</p>
+                      <a href="mailto:info@slainvisiblegrills.com" className="text-[var(--primary-color)] font-medium hover:underline text-sm sm:text-base cursor-pointer">
                         info@slainvisiblegrills.com
                       </a>
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-white rounded-xl p-6 shadow-lg card-hover">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-[var(--primary-color)] rounded-lg flex items-center justify-center flex-shrink-0">
-                      <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <div className="bg-white rounded-xl p-4 sm:p-6 shadow-lg card-hover">
+                  <div className="flex items-start space-x-3 sm:space-x-4">
+                    <div className="w-10 sm:w-12 h-10 sm:h-12 bg-[var(--primary-color)] rounded-lg flex items-center justify-center flex-shrink-0">
+                      <svg className="w-5 sm:w-6 h-5 sm:h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">Address</h3>
-                      <p className="text-gray-600 mb-2">Visit our office or schedule a site visit</p>
-                      <p className="text-gray-800">
+                      <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-1 sm:mb-2">Address</h3>
+                      <p className="text-sm sm:text-base text-gray-600 mb-1 sm:mb-2">Visit our office or schedule a site visit</p>
+                      <p className="text-sm sm:text-base text-gray-800">
                         123 Business District,<br />
                         Hyderabad, Telangana 500001
                       </p>
@@ -294,7 +294,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="bg-white rounded-xl p-6 shadow-lg card-hover">
+                <div className="bg-white rounded-xl p-4 sm:p-6 shadow-lg card-hover">
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-[var(--primary-color)] rounded-lg flex items-center justify-center flex-shrink-0">
                       <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">

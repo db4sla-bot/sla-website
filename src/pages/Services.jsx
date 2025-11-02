@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 
 const Services = () => {
-  const [selectedService, setSelectedService] = useState(0);
-
   const services = [
     {
       title: 'Invisible Grills',
@@ -144,142 +142,130 @@ const Services = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 text-shadow">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 text-shadow">
               Our Services
             </h1>
-            <p className="text-xl lg:text-2xl text-blue-100 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-blue-100 max-w-3xl mx-auto">
               Comprehensive protection and enhancement solutions for your home and office spaces
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Services Navigation */}
-      <section className="py-8 bg-white shadow-sm sticky top-16 z-40">
+      {/* All Services Section */}
+      <section className="py-8 sm:py-12 lg:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-4">
-            {services.map((service, index) => (
-              <button
-                key={index}
-                onClick={() => setSelectedService(index)}
-                className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
-                  selectedService === index
-                    ? 'bg-[var(--primary-color)] text-white shadow-lg'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                <span className="mr-2">{service.icon}</span>
-                {service.title}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
+          {services.map((service, serviceIndex) => (
+            <motion.div
+              key={serviceIndex}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: serviceIndex * 0.1 }}
+              viewport={{ once: true }}
+              className={`mb-16 sm:mb-20 lg:mb-24 ${serviceIndex === services.length - 1 ? 'mb-0' : ''}`}
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                {/* Content */}
+                <div className={`space-y-6 lg:space-y-8 ${serviceIndex % 2 === 1 ? 'lg:order-2' : ''}`}>
+                  <div>
+                    <div className="text-3xl sm:text-4xl lg:text-5xl mb-3 sm:mb-4">{service.icon}</div>
+                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+                      {service.title}
+                    </h2>
+                    <h3 className="text-lg sm:text-xl text-[var(--primary-color)] mb-3 sm:mb-4">
+                      {service.subtitle}
+                    </h3>
+                    <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+                      {service.description}
+                    </p>
+                  </div>
 
-      {/* Service Details */}
-      <section className="py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            key={selectedService}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
-          >
-            {/* Content */}
-            <div className="space-y-8">
-              <div>
-                <div className="text-5xl mb-4">{services[selectedService].icon}</div>
-                <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
-                  {services[selectedService].title}
-                </h2>
-                <h3 className="text-xl text-[var(--primary-color)] mb-4">
-                  {services[selectedService].subtitle}
-                </h3>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  {services[selectedService].description}
-                </p>
-              </div>
-
-              {/* Features */}
-              <div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-4">Key Features</h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {services[selectedService].features.map((feature, index) => (
-                    <div key={index} className="flex items-center">
-                      <svg className="w-5 h-5 text-[var(--primary-color)] mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      <span className="text-gray-700">{feature}</span>
+                  {/* Features */}
+                  <div>
+                    <h4 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">Key Features</h4>
+                    <div className="grid grid-cols-1 gap-2 sm:gap-3">
+                      {service.features.map((feature, index) => (
+                        <div key={index} className="flex items-center">
+                          <svg className="w-4 h-4 sm:w-5 sm:h-5 text-[var(--primary-color)] mr-2 sm:mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
+                          <span className="text-sm sm:text-base text-gray-700">{feature}</span>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </div>
+                  </div>
 
-              {/* Benefits */}
-              <div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-4">Benefits</h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {services[selectedService].benefits.map((benefit, index) => (
-                    <div key={index} className="flex items-center">
-                      <svg className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                      </svg>
-                      <span className="text-gray-700">{benefit}</span>
+                  {/* Benefits */}
+                  <div>
+                    <h4 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">Benefits</h4>
+                    <div className="grid grid-cols-1 gap-2 sm:gap-3">
+                      {service.benefits.map((benefit, index) => (
+                        <div key={index} className="flex items-center">
+                          <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                          <span className="text-sm sm:text-base text-gray-700">{benefit}</span>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </div>
+                  </div>
 
-              {/* Applications */}
-              <div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-4">Applications</h4>
-                <div className="flex flex-wrap gap-2">
-                  {services[selectedService].applications.map((application, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 bg-blue-50 text-[var(--primary-color)] rounded-full text-sm font-medium"
-                    >
-                      {application}
-                    </span>
-                  ))}
+                  {/* Applications */}
+                  <div>
+                    <h4 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">Applications</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {service.applications.map((application, index) => (
+                        <span
+                          key={index}
+                          className="px-2 sm:px-3 py-1 bg-blue-50 text-[var(--primary-color)] rounded-full text-xs sm:text-sm font-medium"
+                        >
+                          {application}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
 
-            {/* Image Placeholder */}
-            <div className="lg:order-first">
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-8 h-96 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-8xl mb-4">{services[selectedService].icon}</div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2">
-                    {services[selectedService].title}
-                  </h3>
-                  <p className="text-gray-600">Professional Installation Available</p>
+                {/* Image Placeholder */}
+                <div className={`${serviceIndex % 2 === 1 ? 'lg:order-1' : ''}`}>
+                  <div className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-6 sm:p-8 h-64 sm:h-80 lg:h-96 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="text-5xl sm:text-6xl lg:text-8xl mb-3 sm:mb-4">{service.icon}</div>
+                      <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-2">
+                        {service.title}
+                      </h3>
+                      <p className="text-sm sm:text-base text-gray-600">Professional Installation Available</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
+              
+              {/* Separator line */}
+              {serviceIndex < services.length - 1 && (
+                <div className="mt-12 sm:mt-16 lg:mt-20 border-t border-gray-200"></div>
+              )}
+            </motion.div>
+          ))}
         </div>
       </section>
 
       {/* Process Section */}
-      <section className="py-16 lg:py-24 bg-gray-50">
+      <section className="py-12 sm:py-16 lg:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-8 sm:mb-12"
           >
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Our Process</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Our Process</h2>
+            <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">
               From consultation to installation, we ensure a seamless experience
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
             {[
               {
                 step: '01',
@@ -310,11 +296,11 @@ const Services = () => {
                 viewport={{ once: true }}
                 className="text-center"
               >
-                <div className="w-16 h-16 bg-[var(--primary-color)] text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-[var(--primary-color)] text-white rounded-full flex items-center justify-center text-base sm:text-lg lg:text-xl font-bold mx-auto mb-3 sm:mb-4">
                   {process.step}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{process.title}</h3>
-                <p className="text-gray-600">{process.description}</p>
+                <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-gray-900 mb-2">{process.title}</h3>
+                <p className="text-sm sm:text-base text-gray-600">{process.description}</p>
               </motion.div>
             ))}
           </div>
@@ -322,7 +308,7 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 lg:py-24 gradient-bg">
+      <section className="py-12 sm:py-16 lg:py-24 gradient-bg">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -330,22 +316,22 @@ const Services = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4">
               Ready to Get Started?
             </h2>
-            <p className="text-xl text-blue-100 mb-8">
+            <p className="text-base sm:text-lg lg:text-xl text-blue-100 mb-6 sm:mb-8">
               Contact us today for a free consultation and personalized quote for your project
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <a
                 href="/contact"
-                className="bg-white text-[var(--primary-color)] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="bg-white text-[var(--primary-color)] px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg cursor-pointer"
               >
                 Get Free Quote
               </a>
               <a
                 href="tel:+919876543210"
-                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-[var(--primary-color)] transition-all duration-300 transform hover:scale-105"
+                className="border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-white hover:text-[var(--primary-color)] transition-all duration-300 transform hover:scale-105 cursor-pointer"
               >
                 Call: +91 98765 43210
               </a>
