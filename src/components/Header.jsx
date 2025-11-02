@@ -20,7 +20,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2 cursor-pointer">
             <div className="w-10 h-10 bg-[var(--primary-color)] rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-xl">S</span>
             </div>
@@ -36,7 +36,7 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`text-sm font-medium transition-colors duration-200 relative ${
+                className={`text-sm font-medium transition-colors duration-200 relative cursor-pointer ${
                   isActive(item.path)
                     ? 'text-[var(--primary-color)]'
                     : 'text-gray-700 hover:text-[var(--primary-color)]'
@@ -54,7 +54,7 @@ const Header = () => {
             ))}
             <Link
               to="/contact"
-              className="bg-[var(--primary-color)] text-white px-6 py-2 rounded-lg hover:bg-opacity-90 transition-all duration-200 text-sm font-medium"
+              className="bg-[var(--primary-color)] text-white px-6 py-2 rounded-lg hover:bg-opacity-90 transition-all duration-200 text-sm font-medium cursor-pointer"
             >
               Get Quote
             </Link>
@@ -62,7 +62,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-md text-gray-700 hover:text-[var(--primary-color)] focus:outline-none"
+            className="md:hidden p-2 rounded-md text-gray-700 hover:text-[var(--primary-color)] focus:outline-none cursor-pointer"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -90,7 +90,7 @@ const Header = () => {
                   <Link
                     key={item.name}
                     to={item.path}
-                    className={`block px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 ${
+                    className={`block px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 cursor-pointer ${
                       isActive(item.path)
                         ? 'bg-[var(--primary-color)] text-white'
                         : 'text-gray-700 hover:bg-gray-100'
@@ -102,7 +102,7 @@ const Header = () => {
                 ))}
                 <Link
                   to="/contact"
-                  className="block mx-4 mt-4 px-4 py-2 bg-[var(--primary-color)] text-white text-center rounded-lg hover:bg-opacity-90 transition-all duration-200 text-sm font-medium"
+                  className="block mx-4 mt-4 px-4 py-2 bg-[var(--primary-color)] text-white text-center rounded-lg hover:bg-opacity-90 transition-all duration-200 text-sm font-medium cursor-pointer"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Get Quote

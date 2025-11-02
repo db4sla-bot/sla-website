@@ -175,7 +175,7 @@ const Contact = () => {
                     required
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent transition-all duration-200 cursor-pointer"
                   >
                     <option value="">Select a service</option>
                     {services.map((service, index) => (
@@ -204,7 +204,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-[var(--primary-color)] text-white py-4 px-6 rounded-lg font-semibold text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                  className="w-full bg-[var(--primary-color)] text-white py-4 px-6 rounded-lg font-semibold text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none cursor-pointer"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center justify-center">
@@ -375,7 +375,7 @@ const Contact = () => {
               <p className="text-gray-600 mb-4">
                 123 Business District, Hyderabad, Telangana 500001
               </p>
-              <button className="bg-[var(--primary-color)] text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition-colors">
+              <button className="bg-[var(--primary-color)] text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition-colors cursor-pointer">
                 Get Directions
               </button>
             </div>

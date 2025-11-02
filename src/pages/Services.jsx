@@ -162,7 +162,7 @@ const Services = () => {
               <button
                 key={index}
                 onClick={() => setSelectedService(index)}
-                className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
+                className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
                   selectedService === index
                     ? 'bg-[var(--primary-color)] text-white shadow-lg'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'

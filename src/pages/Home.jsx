@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import HeroSlider from '../components/HeroSlider';
+import VideoSlider from '../components/VideoSlider';
 
 const Home = () => {
   const services = [
@@ -73,47 +75,11 @@ const Home = () => {
 
   return (
     <div className="animate-fade-in">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 gradient-bg"></div>
-        <div className="absolute inset-0 bg-black opacity-20"></div>
-        <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-shadow">
-              Premium Protection
-              <br />
-              <span className="text-blue-200">Solutions for Your Home</span>
-            </h1>
-            <p className="text-lg sm:text-xl lg:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto leading-relaxed">
-              Discover our range of invisible grills, mosquito mesh, cloth hangers, artificial grass, 
-              and bird spikes. Professional installation with lifetime support.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link
-                to="/services"
-                className="bg-white text-[var(--primary-color)] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
-              >
-                Explore Services
-              </Link>
-              <Link
-                to="/contact"
-                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-[var(--primary-color)] transition-all duration-300 transform hover:scale-105"
-              >
-                Get Free Quote
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
-        </div>
-      </section>
+      {/* Hero Slider */}
+      <HeroSlider />
+      
+      {/* Video Slider */}
+      <VideoSlider />
 
       {/* About Section */}
       <section className="py-16 lg:py-24 bg-gray-50">
@@ -214,7 +180,7 @@ const Home = () => {
                   </ul>
                   <Link
                     to="/services"
-                    className="inline-flex items-center text-[var(--primary-color)] hover:text-blue-800 font-medium"
+                    className="inline-flex items-center text-[var(--primary-color)] hover:text-blue-800 font-medium cursor-pointer"
                   >
                     Learn More
                     <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -288,13 +254,13 @@ const Home = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/contact"
-                className="bg-white text-[var(--primary-color)] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="bg-white text-[var(--primary-color)] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg cursor-pointer"
               >
                 Get Free Quote
               </Link>
               <a
                 href="tel:+919876543210"
-                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-[var(--primary-color)] transition-all duration-300 transform hover:scale-105"
+                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-[var(--primary-color)] transition-all duration-300 transform hover:scale-105 cursor-pointer"
               >
                 Call Now: +91 98765 43210
               </a>

@@ -327,7 +327,7 @@ const Careers = () => {
 
                 <button
                   onClick={() => setSelectedJob(job)}
-                  className="w-full bg-[var(--primary-color)] text-white py-3 px-6 rounded-lg hover:bg-opacity-90 transition-all duration-300 font-medium"
+                  className="w-full bg-[var(--primary-color)] text-white py-3 px-6 rounded-lg hover:bg-opacity-90 transition-all duration-300 font-medium cursor-pointer"
                 >
                   View Details & Apply
                 </button>
@@ -353,7 +353,7 @@ const Careers = () => {
                 </div>
                 <button
                   onClick={() => setSelectedJob(null)}
-                  className="text-gray-400 hover:text-gray-600"
+                  className="text-gray-400 hover:text-gray-600 cursor-pointer"
                 >
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -500,7 +500,7 @@ const Careers = () => {
                     </div>
                     <button
                       type="submit"
-                      className="w-full bg-[var(--primary-color)] text-white py-3 px-6 rounded-lg hover:bg-opacity-90 transition-all duration-300 font-medium"
+                      className="w-full bg-[var(--primary-color)] text-white py-3 px-6 rounded-lg hover:bg-opacity-90 transition-all duration-300 font-medium cursor-pointer"
                     >
                       Submit Application
                     </button>
