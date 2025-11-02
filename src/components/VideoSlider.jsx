@@ -88,14 +88,14 @@ const VideoSlider = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Main Video Player */}
+        <div className="flex justify-center">
+          {/* Main Video Player - Full Width */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="lg:col-span-2"
+            className="max-w-4xl w-full"
           >
             <div className="relative bg-gray-800 rounded-2xl overflow-hidden shadow-2xl">
               {/* Video Container */}
@@ -188,13 +188,13 @@ const VideoSlider = () => {
               </div>
               
               {/* Video Info */}
-              <div className="p-6">
+              <div className="p-6 text-center">
                 <motion.h3
                   key={activeVideo}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
-                  className="text-xl font-bold text-white mb-2"
+                  className="text-2xl font-bold text-white mb-3"
                 >
                   {videos[activeVideo].title}
                 </motion.h3>
@@ -203,112 +203,47 @@ const VideoSlider = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  className="text-gray-300 mb-4"
+                  className="text-gray-300 mb-6 max-w-2xl mx-auto"
                 >
                   {videos[activeVideo].description}
                 </motion.p>
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-center space-x-6">
+                  <button className="bg-primary-500 text-white px-6 py-3 rounded-lg hover:bg-primary-600 transition-all duration-300 cursor-pointer transform hover:scale-105 font-medium">
+                    Watch Full Video
+                  </button>
                   <div className="flex items-center space-x-4">
-                    <button className="bg-primary-500 text-white px-4 py-2 rounded-lg hover:bg-primary-600 transition-all duration-300 cursor-pointer transform hover:scale-105">
-                      Watch Full Video
-                    </button>
                     <button className="text-gray-300 hover:text-white transition-colors cursor-pointer hover:scale-110">
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                       </svg>
                     </button>
                     <button className="text-gray-300 hover:text-white transition-colors cursor-pointer hover:scale-110">
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z" />
                       </svg>
                     </button>
+                    <span className="text-sm text-gray-400">
+                      {videos[activeVideo].duration}
+                    </span>
                   </div>
-                  <span className="text-sm text-gray-400">
-                    {videos[activeVideo].duration}
-                  </span>
                 </div>
               </div>
             </div>
-          </motion.div>
-
-          {/* Video Playlist */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="space-y-4"
-          >
-            <h3 className="text-xl font-bold text-white mb-4">Video Library</h3>
             
-            <div className="space-y-3 max-h-96 overflow-y-auto">
-              {videos.map((video, index) => (
-                <motion.div
-                  key={video.id}
-                  whileHover={{ scale: 1.02 }}
-                  onClick={() => handleVideoClick(index)}
-                  className={`p-4 rounded-xl cursor-pointer transition-all duration-300 ${
-                    activeVideo === index
-                      ? 'bg-primary-500 shadow-lg'
-                      : 'bg-gray-800 hover:bg-gray-700'
+            {/* Video Navigation Dots */}
+            <div className="flex justify-center mt-6 space-x-2">
+              {videos.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveVideo(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer ${
+                    activeVideo === index 
+                      ? 'bg-primary-500 scale-125' 
+                      : 'bg-gray-600 hover:bg-gray-500'
                   }`}
-                >
-                  <div className="flex items-start space-x-3">
-                    <div className={`w-12 h-12 rounded-lg overflow-hidden flex items-center justify-center ${
-                      activeVideo === index ? 'bg-white bg-opacity-20' : 'bg-gray-700'
-                    }`}>
-                      <img
-                        src={video.thumbnail}
-                        alt={video.title}
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          e.target.style.display = 'none';
-                          e.target.nextSibling.style.display = 'flex';
-                        }}
-                      />
-                      <span className="hidden text-2xl">
-                        {video.fallbackIcon}
-                      </span>
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h4 className={`font-medium mb-1 ${
-                        activeVideo === index ? 'text-white' : 'text-gray-200'
-                      }`}>
-                        {video.title}
-                      </h4>
-                      <p className={`text-sm mb-2 line-clamp-2 ${
-                        activeVideo === index ? 'text-blue-100' : 'text-gray-400'
-                      }`}>
-                        {video.description}
-                      </p>
-                      <div className="flex items-center justify-between">
-                        <span className={`text-xs px-2 py-1 rounded-full ${
-                          activeVideo === index 
-                            ? 'bg-white bg-opacity-20 text-white' 
-                            : 'bg-gray-700 text-gray-300'
-                        }`}>
-                          {video.category}
-                        </span>
-                        <span className={`text-xs ${
-                          activeVideo === index ? 'text-blue-100' : 'text-gray-400'
-                        }`}>
-                          {video.duration}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
+                />
               ))}
             </div>
-            
-            {/* View All Videos Button */}
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full mt-4 bg-gray-800 hover:bg-gray-700 text-white py-3 px-4 rounded-xl transition-all duration-300 border border-gray-700 cursor-pointer"
-            >
-              View All Videos
-            </motion.button>
           </motion.div>
         </div>
 

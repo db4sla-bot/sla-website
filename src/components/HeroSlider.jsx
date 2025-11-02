@@ -14,7 +14,7 @@ const HeroSlider = () => {
       buttonText: "Explore Invisible Grills",
       buttonLink: "/services",
       bgColor: "from-blue-600 to-blue-800",
-      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      image: "https://ik.imagekit.io/67x2srjsy/Website/Hero%20Slider/1.jpg?updatedAt=1762091645922",
       fallbackIcon: "🏠"
     },
     {
@@ -25,7 +25,7 @@ const HeroSlider = () => {
       buttonText: "View Mesh Solutions",
       buttonLink: "/services",
       bgColor: "from-green-600 to-green-800",
-      image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      image: "https://ik.imagekit.io/67x2srjsy/Website/Hero%20Slider/2.jpg?updatedAt=1762091645902",
       fallbackIcon: "🦟"
     },
     {
@@ -36,7 +36,7 @@ const HeroSlider = () => {
       buttonText: "Discover Solutions",
       buttonLink: "/services",
       bgColor: "from-purple-600 to-purple-800",
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      image: "https://ik.imagekit.io/67x2srjsy/Website/Hero%20Slider/3.jpg?updatedAt=1762091646162",
       fallbackIcon: "👕"
     },
     {
@@ -47,8 +47,30 @@ const HeroSlider = () => {
       buttonText: "See Grass Options",
       buttonLink: "/services",
       bgColor: "from-emerald-600 to-emerald-800",
-      image: "https://images.unsplash.com/photo-1558904541-efa843a96f01?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      image: "https://ik.imagekit.io/67x2srjsy/Website/Hero%20Slider/4.webp?updatedAt=1762091646189",
       fallbackIcon: "🌱"
+    },
+    {
+      id: 5,
+      title: "Bird Spikes",
+      subtitle: "Humane Bird Control Solutions",
+      description: "Effective bird deterrent systems that protect your property while ensuring the safety of our feathered friends.",
+      buttonText: "Learn About Spikes",
+      buttonLink: "/services",
+      bgColor: "from-orange-600 to-orange-800",
+      image: "https://ik.imagekit.io/67x2srjsy/Website/Hero%20Slider/5.jpg?updatedAt=1762091645909",
+      fallbackIcon: "🐦"
+    },
+    {
+      id: 6,
+      title: "Complete Protection Package",
+      subtitle: "All-in-One Safety Solutions",
+      description: "Comprehensive protection solutions combining invisible grills, mosquito mesh, and more for complete home safety.",
+      buttonText: "View All Services",
+      buttonLink: "/services",
+      bgColor: "from-indigo-600 to-indigo-800",
+      image: "https://ik.imagekit.io/67x2srjsy/Website/Hero%20Slider/6.webp?updatedAt=1762091646186",
+      fallbackIcon: "🛡️"
     }
   ];
 
@@ -92,36 +114,27 @@ const HeroSlider = () => {
             }}
           >
             {/* Background Image */}
-            <div className="absolute inset-0">
-              <img
-                src={slide.image}
-                alt={slide.title}
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  e.target.style.display = 'none';
-                  e.target.nextSibling.style.display = 'flex';
-                }}
-              />
-              {/* Fallback gradient background */}
-              <div 
-                className={`hidden w-full h-full bg-gradient-to-br ${slide.bgColor} items-center justify-center`}
-              >
-                <span className="text-9xl">{slide.fallbackIcon}</span>
-              </div>
+            <div 
+              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+              style={{ 
+                backgroundImage: `url('${slide.image}')`,
+                backgroundColor: '#1f2937' // fallback gray color
+              }}
+            >
               {/* Overlay */}
-              <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+              <div className="absolute inset-0 bg-[#00000045] bg-opacity-40"></div>
             </div>
 
             {/* Content */}
             <div className="relative z-10 h-full flex items-center">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                  {/* Text Content */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center h-full">
+                  {/* Text Content - Left Half */}
                   <motion.div
                     initial={{ x: -100, opacity: 0 }}
                     animate={{ x: index === currentSlide ? 0 : -100, opacity: index === currentSlide ? 1 : 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="text-white"
+                    className="text-white text-left"
                   >
                     <motion.div
                       initial={{ y: 20, opacity: 0 }}
@@ -145,7 +158,7 @@ const HeroSlider = () => {
                       initial={{ y: 20, opacity: 0 }}
                       animate={{ y: index === currentSlide ? 0 : 20, opacity: index === currentSlide ? 1 : 0 }}
                       transition={{ duration: 0.6, delay: 0.5 }}
-                      className="text-lg sm:text-xl mb-8 text-blue-100 leading-relaxed max-w-2xl"
+                      className="text-lg sm:text-xl mb-8 text-blue-100 leading-relaxed"
                     >
                       {slide.description}
                     </motion.p>
@@ -170,25 +183,9 @@ const HeroSlider = () => {
                       </Link>
                     </motion.div>
                   </motion.div>
-
-                  {/* Image Content */}
-                  <motion.div
-                    initial={{ x: 100, opacity: 0 }}
-                    animate={{ x: index === currentSlide ? 0 : 100, opacity: index === currentSlide ? 1 : 0 }}
-                    transition={{ duration: 0.8, delay: 0.3 }}
-                    className="flex justify-center items-center"
-                  >
-                    <motion.div
-                      initial={{ y: 20, opacity: 0 }}
-                      animate={{ y: index === currentSlide ? 0 : 20, opacity: index === currentSlide ? 1 : 0 }}
-                      transition={{ duration: 0.6, delay: 0.7 }}
-                      className="bg-white bg-opacity-20 backdrop-blur-sm rounded-2xl p-8 text-center"
-                    >
-                      <div className="text-6xl mb-4">{slide.fallbackIcon}</div>
-                      <h3 className="text-2xl font-bold text-white mb-2">Professional Installation</h3>
-                      <p className="text-blue-100">Expert technicians with years of experience</p>
-                    </motion.div>
-                  </motion.div>
+                  
+                  {/* Empty Right Half - for image background visibility */}
+                  <div className="hidden lg:block"></div>
                 </div>
               </div>
             </div>
