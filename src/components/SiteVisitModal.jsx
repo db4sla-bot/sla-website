@@ -105,7 +105,7 @@ const SiteVisitModal = ({ isOpen, onClose }) => {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-[var(--primary-color)] to-blue-600 px-6 py-4 rounded-t-2xl relative">
+            <div className="bg-gradient-to-r from-[var(--primary-color)] to-blue-600 px-6 py-2 rounded-t-2xl relative">
               <button
                 onClick={onClose}
                 className="absolute top-4 right-4 text-white hover:text-gray-200 cursor-pointer"
@@ -157,12 +157,12 @@ const SiteVisitModal = ({ isOpen, onClose }) => {
                     </motion.div>
                   )}
                   
-                  <div className="text-center mb-6">
+                  {/* <div className="text-center mb-6">
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">Book Your Free Site Visit</h3>
                     <p className="text-sm text-gray-600">
                       Fill out the form below and our expert will visit your location for free consultation and measurement.
                     </p>
-                  </div>
+                  </div> */}
 
                   <form onSubmit={handleSubmit} className="space-y-4">
                     {/* Full Name */}
