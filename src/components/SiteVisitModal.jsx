@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { db } from '../config/firebase';
 
 const SiteVisitModal = ({ isOpen, onClose }) => {
+  console.log('SiteVisitModal rendered with isOpen:', isOpen);
+  
   const [formData, setFormData] = useState({
     fullName: '',
     mobileNumber: '',
@@ -11,6 +15,7 @@ const SiteVisitModal = ({ isOpen, onClose }) => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [submitError, setSubmitError] = useState(null);
 
   const services = [
     'Invisible Grills',
@@ -34,8 +39,19 @@ const SiteVisitModal = ({ isOpen, onClose }) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Save to Firebase Firestore
+      const docRef = await addDoc(collection(db, 'freeSiteVisitBookings'), {
+        fullName: formData.fullName,
+        mobileNumber: formData.mobileNumber,
+        city: formData.city,
+        lookingFor: formData.lookingFor,
+        createdAt: serverTimestamp(),
+        status: 'pending',
+        source: 'website'
+      });
+      
+      console.log('Document written with ID: ', docRef.id);
       setIsSubmitting(false);
       setSubmitStatus('success');
       
@@ -49,8 +65,18 @@ const SiteVisitModal = ({ isOpen, onClose }) => {
         });
         setSubmitStatus(null);
         onClose();
-      }, 2000);
-    }, 1500);
+      }, 3000);
+      
+    } catch (error) {
+      console.error('Error adding document: ', error);
+      setIsSubmitting(false);
+      setSubmitError('Failed to submit booking. Please try again or call us directly.');
+      
+      // Clear error status after 5 seconds
+      setTimeout(() => {
+        setSubmitError(null);
+      }, 5000);
+    }
   };
 
   const handleBackdropClick = (e) => {
@@ -106,12 +132,31 @@ const SiteVisitModal = ({ isOpen, onClose }) => {
                 >
                   <div className="text-6xl mb-4">✅</div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Booking Confirmed!</h3>
-                  <p className="text-gray-600">
-                    Thank you! We'll contact you within 24 hours to schedule your free site visit.
+                  <p className="text-gray-600 mb-4">
+                    Thank you {formData.fullName}! Your site visit request has been saved successfully.
+                  </p>
+                  <p className="text-sm text-gray-500">
+                    We'll contact you at {formData.mobileNumber} within 24 hours to schedule your free site visit in {formData.city}.
                   </p>
                 </motion.div>
               ) : (
                 <>
+                  {submitError && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6"
+                    >
+                      <div className="flex items-center">
+                        <div className="text-2xl mr-3">⚠️</div>
+                        <div>
+                          <h4 className="text-red-800 font-semibold mb-1">Booking Failed</h4>
+                          <p className="text-red-600 text-sm">{submitError}</p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                  
                   <div className="text-center mb-6">
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">Book Your Free Site Visit</h3>
                     <p className="text-sm text-gray-600">
@@ -205,7 +250,7 @@ const SiteVisitModal = ({ isOpen, onClose }) => {
                             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                           </svg>
-                          Booking...
+                          Saving Booking...
                         </div>
                       ) : (
                         'Book Free Site Visit'

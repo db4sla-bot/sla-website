@@ -15,14 +15,20 @@ const Home = () => {
     const now = Date.now();
     const oneDay = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 
+    console.log('Modal check:', { lastShown, now, timeDiff: lastShown ? now - parseInt(lastShown) : 'no previous', oneDay });
+
     // Show modal if it hasn't been shown in the last 24 hours
     if (!lastShown || (now - parseInt(lastShown)) > oneDay) {
+      console.log('Setting timer for modal to show in 3 seconds...');
       const timer = setTimeout(() => {
+        console.log('Opening modal now!');
         setIsModalOpen(true);
         localStorage.setItem('siteVisitModalLastShown', now.toString());
       }, 3000);
 
       return () => clearTimeout(timer);
+    } else {
+      console.log('Modal not shown - was shown recently');
     }
   }, []);
 
@@ -102,6 +108,15 @@ const Home = () => {
     <div className="animate-fade-in">
       {/* Site Visit Modal */}
       <SiteVisitModal isOpen={isModalOpen} onClose={handleCloseModal} />
+      
+      {/* Debug button (remove in production) */}
+      <button 
+        onClick={() => setIsModalOpen(true)}
+        className="fixed top-4 right-4 z-50 bg-red-500 text-white px-4 py-2 rounded shadow-lg hover:bg-red-600"
+        style={{ position: 'fixed', top: '20px', right: '20px', zIndex: 9999 }}
+      >
+        Test Modal
+      </button>
       
       {/* Hero Slider */}
       <HeroSlider />
