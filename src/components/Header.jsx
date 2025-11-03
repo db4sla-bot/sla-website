@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ModalContext } from '../App';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { openSiteVisitModal } = useContext(ModalContext);
 
   const navigation = [
     { name: 'Home', path: '/' },
@@ -52,12 +54,12 @@ const Header = () => {
                 )}
               </Link>
             ))}
-            <Link
-              to="/contact"
+            <button
+              onClick={openSiteVisitModal}
               className="bg-[var(--primary-color)] text-white px-6 py-2 rounded-lg hover:bg-opacity-90 transition-all duration-200 text-sm font-medium cursor-pointer"
             >
-              Get Quote
-            </Link>
+              Free Site Visit
+            </button>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -100,13 +102,15 @@ const Header = () => {
                     {item.name}
                   </Link>
                 ))}
-                <Link
-                  to="/contact"
-                  className="block mx-4 mt-4 px-4 py-2 bg-[var(--primary-color)] text-white text-center rounded-lg hover:bg-opacity-90 transition-all duration-200 text-sm font-medium cursor-pointer"
-                  onClick={() => setIsMenuOpen(false)}
+                <button
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    openSiteVisitModal();
+                  }}
+                  className="block mx-4 mt-4 px-4 py-2 bg-[var(--primary-color)] text-white text-center rounded-lg hover:bg-opacity-90 transition-all duration-200 text-sm font-medium cursor-pointer w-[calc(100%-2rem)]"
                 >
-                  Get Quote
-                </Link>
+                  Free Site Visit
+                </button>
               </nav>
             </motion.div>
           )}

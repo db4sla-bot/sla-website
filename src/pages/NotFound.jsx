@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import SiteVisitModal from '../components/SiteVisitModal';
+import { ModalContext } from '../App';
 
 const NotFound = () => {
+  const { isSiteVisitModalOpen, closeSiteVisitModal } = useContext(ModalContext);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+    <>
+      <SiteVisitModal isOpen={isSiteVisitModalOpen} onClose={closeSiteVisitModal} />
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
       <div className="max-w-md w-full text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -58,6 +64,7 @@ const NotFound = () => {
         </motion.div>
       </div>
     </div>
+    </>
   );
 };
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, createContext, useContext } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ErrorBoundary from './components/ErrorBoundary';
 import Layout from './components/Layout';
@@ -10,22 +10,54 @@ import Contact from './pages/Contact';
 import Careers from './pages/Careers';
 import NotFound from './pages/NotFound';
 
+// Create context for modal state
+export const ModalContext = createContext();
+
 const App = () => {
+  const [isSiteVisitModalOpen, setIsSiteVisitModalOpen] = useState(false);
+
+  const openSiteVisitModal = () => {
+    setIsSiteVisitModalOpen(true);
+  };
+
+  const closeSiteVisitModal = () => {
+    setIsSiteVisitModalOpen(false);
+  };
+
+  // Auto-open modal after 3 seconds (only if not shown recently)
+  useEffect(() => {
+    const lastShown = localStorage.getItem('siteVisitModalLastShown');
+    const now = Date.now();
+    const oneDay = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+
+    // Show modal if it hasn't been shown in the last 24 hours
+    if (!lastShown || (now - parseInt(lastShown)) > oneDay) {
+      const timer = setTimeout(() => {
+        setIsSiteVisitModalOpen(true);
+        localStorage.setItem('siteVisitModalLastShown', now.toString());
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
   return (
     <ErrorBoundary>
-      <Router>
-        <ScrollToTopOnRouteChange />
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/careers" element={<Careers />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Layout>
-        <ScrollToTop />
-      </Router>
+      <ModalContext.Provider value={{ isSiteVisitModalOpen, openSiteVisitModal, closeSiteVisitModal }}>
+        <Router>
+          <ScrollToTopOnRouteChange />
+          <Layout>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/careers" element={<Careers />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Layout>
+          <ScrollToTop />
+        </Router>
+      </ModalContext.Provider>
     </ErrorBoundary>
   );
 };

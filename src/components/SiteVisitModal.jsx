@@ -4,8 +4,6 @@ import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../config/firebase';
 
 const SiteVisitModal = ({ isOpen, onClose }) => {
-  console.log('SiteVisitModal rendered with isOpen:', isOpen);
-  
   const [formData, setFormData] = useState({
     fullName: '',
     mobileNumber: '',

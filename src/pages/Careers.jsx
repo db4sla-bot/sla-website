@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { motion } from 'framer-motion';
+import SiteVisitModal from '../components/SiteVisitModal';
+import { ModalContext } from '../App';
 
 const Careers = () => {
+  const { isSiteVisitModalOpen, closeSiteVisitModal } = useContext(ModalContext);
   const [selectedJob, setSelectedJob] = useState(null);
   const [applicationForm, setApplicationForm] = useState({
     name: '',
@@ -207,6 +210,9 @@ const Careers = () => {
 
   return (
     <div className="animate-fade-in">
+      {/* Site Visit Modal */}
+      <SiteVisitModal isOpen={isSiteVisitModalOpen} onClose={closeSiteVisitModal} />
+      
       {/* Hero Section */}
       <section className="relative py-12 sm:py-20 lg:py-32 gradient-bg">
         <div className="absolute inset-0 bg-black opacity-10"></div>

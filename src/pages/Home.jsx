@@ -1,40 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import HeroSlider from '../components/HeroSlider';
 import VideoSlider from '../components/VideoSlider';
 import OurProcess from '../components/OurProcess';
 import SiteVisitModal from '../components/SiteVisitModal';
+import { ModalContext } from '../App';
 
 const Home = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isSiteVisitModalOpen, closeSiteVisitModal } = useContext(ModalContext);
 
-  // Open modal after 3 seconds (only if not shown recently)
-  useEffect(() => {
-    const lastShown = localStorage.getItem('siteVisitModalLastShown');
-    const now = Date.now();
-    const oneDay = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 
-    console.log('Modal check:', { lastShown, now, timeDiff: lastShown ? now - parseInt(lastShown) : 'no previous', oneDay });
 
-    // Show modal if it hasn't been shown in the last 24 hours
-    if (!lastShown || (now - parseInt(lastShown)) > oneDay) {
-      console.log('Setting timer for modal to show in 3 seconds...');
-      const timer = setTimeout(() => {
-        console.log('Opening modal now!');
-        setIsModalOpen(true);
-        localStorage.setItem('siteVisitModalLastShown', now.toString());
-      }, 3000);
 
-      return () => clearTimeout(timer);
-    } else {
-      console.log('Modal not shown - was shown recently');
-    }
-  }, []);
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
 
   const services = [
     {
@@ -106,17 +84,8 @@ const Home = () => {
 
   return (
     <div className="animate-fade-in">
-      {/* Site Visit Modal */}
-      <SiteVisitModal isOpen={isModalOpen} onClose={handleCloseModal} />
-      
-      {/* Debug button (remove in production) */}
-      <button 
-        onClick={() => setIsModalOpen(true)}
-        className="fixed top-4 right-4 z-50 bg-red-500 text-white px-4 py-2 rounded shadow-lg hover:bg-red-600"
-        style={{ position: 'fixed', top: '20px', right: '20px', zIndex: 9999 }}
-      >
-        Test Modal
-      </button>
+      {/* Site Visit Modal - Auto display modal */}
+      <SiteVisitModal isOpen={isSiteVisitModalOpen} onClose={closeSiteVisitModal} />
       
       {/* Hero Slider */}
       <HeroSlider />

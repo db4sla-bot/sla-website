@@ -1,31 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { motion } from 'framer-motion';
 import OurProcess from '../components/OurProcess';
 import SiteVisitModal from '../components/SiteVisitModal';
+import { ModalContext } from '../App';
 
 const Services = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  // Open modal after 3 seconds (only if not shown recently)
-  useEffect(() => {
-    const lastShown = localStorage.getItem('siteVisitModalLastShown');
-    const now = Date.now();
-    const oneDay = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
-
-    // Show modal if it hasn't been shown in the last 24 hours
-    if (!lastShown || (now - parseInt(lastShown)) > oneDay) {
-      const timer = setTimeout(() => {
-        setIsModalOpen(true);
-        localStorage.setItem('siteVisitModalLastShown', now.toString());
-      }, 3000);
-
-      return () => clearTimeout(timer);
-    }
-  }, []);
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
+  const { isSiteVisitModalOpen, closeSiteVisitModal } = useContext(ModalContext);
 
   const services = [
     {
@@ -159,7 +139,7 @@ const Services = () => {
   return (
     <div className="animate-fade-in">
       {/* Site Visit Modal */}
-      <SiteVisitModal isOpen={isModalOpen} onClose={handleCloseModal} />
+      <SiteVisitModal isOpen={isSiteVisitModalOpen} onClose={closeSiteVisitModal} />
       
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 gradient-bg">
