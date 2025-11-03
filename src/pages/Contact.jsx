@@ -150,7 +150,7 @@ const Contact = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent transition-all duration-200"
-                      placeholder="+91 98850 1299"
+                      placeholder="+91 98850 12999"
                     />
                   </div>
                 </div>
@@ -257,7 +257,7 @@ const Contact = () => {
                     <div>
                       <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-1 sm:mb-2">Phone</h3>
                       <p className="text-sm sm:text-base text-gray-600 mb-1 sm:mb-2">Call us for immediate assistance</p>
-                      <a href="tel:+919885001299" className="text-[var(--primary-color)] font-medium hover:underline text-sm sm:text-base cursor-pointer">
+                      <a href="tel:+919885012999" className="text-[var(--primary-color)] font-medium hover:underline text-sm sm:text-base cursor-pointer">
                         +91 98850 1299
                       </a>
                     </div>
@@ -325,7 +325,7 @@ const Contact = () => {
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
                 <div className="space-y-3">
                   <a
-                    href="tel:+919885001299"
+                    href="tel:+919885012999"
                     className="flex items-center justify-between bg-white p-4 rounded-lg hover:shadow-md transition-all duration-200"
                   >
                     <span className="font-medium text-gray-900">📞 Call for Immediate Support</span>
@@ -334,7 +334,7 @@ const Contact = () => {
                     </svg>
                   </a>
                   <a
-                    href="https://wa.me/919885001299"
+                    href="https://wa.me/919885012999"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-between bg-white p-4 rounded-lg hover:shadow-md transition-all duration-200"
