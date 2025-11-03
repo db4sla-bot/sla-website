@@ -21,7 +21,7 @@ const Careers = () => {
       id: 1,
       title: 'Installation Technician',
       department: 'Operations',
-      location: 'Hyderabad, Telangana',
+      location: 'Nellore, Andhra Pradesh',
       type: 'Full-time',
       experience: '2-5 years',
       salary: '₹25,000 - ₹40,000',
@@ -54,7 +54,7 @@ const Careers = () => {
       id: 2,
       title: 'Sales Executive',
       department: 'Sales',
-      location: 'Hyderabad, Telangana',
+      location: 'Nellore, Andhra Pradesh',
       type: 'Full-time',
       experience: '1-3 years',
       salary: '₹20,000 - ₹35,000',
@@ -87,7 +87,7 @@ const Careers = () => {
       id: 3,
       title: 'Customer Support Executive',
       department: 'Customer Service',
-      location: 'Hyderabad, Telangana',
+      location: 'Nellore, Andhra Pradesh',
       type: 'Full-time',
       experience: '0-2 years',
       salary: '₹18,000 - ₹28,000',
@@ -120,7 +120,7 @@ const Careers = () => {
       id: 4,
       title: 'Project Manager',
       department: 'Operations',
-      location: 'Hyderabad, Telangana',
+      location: 'Nellore, Andhra Pradesh',
       type: 'Full-time',
       experience: '5+ years',
       salary: '₹50,000 - ₹80,000',
@@ -535,7 +535,7 @@ const Careers = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="mailto:careers@slainvisiblegrills.com"
+                href="mailto:slainvisiblegrills@gmail.com"
                 className="bg-white text-[var(--primary-color)] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
                 Send Your Resume

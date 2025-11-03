@@ -50,19 +50,19 @@ const Home = () => {
   const testimonials = [
     {
       name: 'Rajesh Kumar',
-      location: 'Banjara Hills, Hyderabad',
+      location: 'Vengal Rao Nagar, Nellore',
       rating: 5,
       text: 'Excellent work by SLA team! The invisible grills are perfectly installed and the quality is outstanding. Highly recommended!'
     },
     {
       name: 'Priya Sharma',
-      location: 'Gachibowli, Hyderabad',
+      location: 'Magunta Layout, Nellore',
       rating: 5,
       text: 'Very professional service. The mosquito mesh works perfectly and the installation was done without any mess. Great experience!'
     },
     {
       name: 'Venkat Reddy',
-      location: 'Jubilee Hills, Hyderabad',
+      location: 'Vidya Nagar, Nellore',
       rating: 5,
       text: 'Amazing quality artificial grass! It looks so natural and has completely transformed our terrace. Worth every penny!'
     }
@@ -643,10 +643,10 @@ const Home = () => {
                 Get Free Quote
               </Link>
               <a
-                href="tel:+919876543210"
+                href="tel:+919885001299"
                 className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-[var(--primary-color)] transition-all duration-300 transform hover:scale-105 cursor-pointer"
               >
-                Call Now: +91 98765 43210
+                Call Now: +91 98850 1299
               </a>
             </div>
           </motion.div>

@@ -150,7 +150,7 @@ const Contact = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent transition-all duration-200"
-                      placeholder="+91 98765 43210"
+                      placeholder="+91 98850 1299"
                     />
                   </div>
                 </div>
@@ -167,7 +167,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent transition-all duration-200"
-                    placeholder="your.email@example.com"
+                    placeholder="slainvisiblegrills@gmail.com"
                   />
                 </div>
 
@@ -257,8 +257,8 @@ const Contact = () => {
                     <div>
                       <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-1 sm:mb-2">Phone</h3>
                       <p className="text-sm sm:text-base text-gray-600 mb-1 sm:mb-2">Call us for immediate assistance</p>
-                      <a href="tel:+919876543210" className="text-[var(--primary-color)] font-medium hover:underline text-sm sm:text-base cursor-pointer">
-                        +91 98765 43210
+                      <a href="tel:+919885001299" className="text-[var(--primary-color)] font-medium hover:underline text-sm sm:text-base cursor-pointer">
+                        +91 98850 1299
                       </a>
                     </div>
                   </div>
@@ -275,8 +275,8 @@ const Contact = () => {
                     <div>
                       <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-1 sm:mb-2">Email</h3>
                       <p className="text-sm sm:text-base text-gray-600 mb-1 sm:mb-2">Send us your detailed requirements</p>
-                      <a href="mailto:info@slainvisiblegrills.com" className="text-[var(--primary-color)] font-medium hover:underline text-sm sm:text-base cursor-pointer">
-                        info@slainvisiblegrills.com
+                      <a href="mailto:slainvisiblegrills@gmail.com" className="text-[var(--primary-color)] font-medium hover:underline text-sm sm:text-base cursor-pointer">
+                        slainvisiblegrills@gmail.com
                       </a>
                     </div>
                   </div>
@@ -293,8 +293,8 @@ const Contact = () => {
                       <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-1 sm:mb-2">Address</h3>
                       <p className="text-sm sm:text-base text-gray-600 mb-1 sm:mb-2">Visit our office or schedule a site visit</p>
                       <p className="text-sm sm:text-base text-gray-800">
-                        123 Business District,<br />
-                        Hyderabad, Telangana 500001
+                        Sapthagiri Colony,<br />
+                        Mini Bypass, Nellore-4
                       </p>
                     </div>
                   </div>
@@ -325,7 +325,7 @@ const Contact = () => {
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
                 <div className="space-y-3">
                   <a
-                    href="tel:+919876543210"
+                    href="tel:+919885001299"
                     className="flex items-center justify-between bg-white p-4 rounded-lg hover:shadow-md transition-all duration-200"
                   >
                     <span className="font-medium text-gray-900">📞 Call for Immediate Support</span>
@@ -334,7 +334,7 @@ const Contact = () => {
                     </svg>
                   </a>
                   <a
-                    href="https://wa.me/919876543210"
+                    href="https://wa.me/919885001299"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-between bg-white p-4 rounded-lg hover:shadow-md transition-all duration-200"
@@ -371,7 +371,7 @@ const Contact = () => {
             className="text-center mb-8"
           >
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Find Us</h2>
-            <p className="text-gray-600">Located in the heart of Hyderabad for easy accessibility</p>
+            <p className="text-gray-600">Located in Nellore for easy accessibility</p>
           </motion.div>
           
           <div className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-8 h-96 flex items-center justify-center">
@@ -379,7 +379,7 @@ const Contact = () => {
               <div className="text-6xl mb-4">📍</div>
               <h3 className="text-2xl font-bold text-gray-800 mb-2">Our Location</h3>
               <p className="text-gray-600 mb-4">
-                123 Business District, Hyderabad, Telangana 500001
+                Sapthagiri Colony, Mini Bypass, Nellore-4
               </p>
               <button className="bg-[var(--primary-color)] text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition-colors cursor-pointer">
                 Get Directions

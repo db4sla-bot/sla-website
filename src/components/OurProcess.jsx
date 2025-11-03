@@ -236,10 +236,10 @@ const OurProcess = () => {
                 Start Your Project
               </a>
               <a
-                href="tel:+919876543210"
+                href="tel:+919885001299"
                 className="border-2 border-[var(--primary-color)] text-[var(--primary-color)] px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-sm sm:text-base hover:bg-[var(--primary-color)] hover:text-white transition-all duration-300 transform hover:scale-105 cursor-pointer"
               >
-                Call: +91 98765 43210
+                Call: +91 98850 1299
               </a>
             </div>
           </div>

@@ -193,7 +193,7 @@ const SiteVisitModal = ({ isOpen, onClose }) => {
                         value={formData.mobileNumber}
                         onChange={handleChange}
                         className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent transition-all duration-200"
-                        placeholder="+91 98765 43210"
+                        placeholder="+91 98850 1299"
                       />
                     </div>
 
