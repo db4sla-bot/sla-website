@@ -9,6 +9,7 @@ import Services from './pages/Services';
 import Contact from './pages/Contact';
 import Careers from './pages/Careers';
 import NotFound from './pages/NotFound';
+import Mosquitomesh from './pages/Mosquitomesh';
 
 // Create context for modal state
 export const ModalContext = createContext();
@@ -52,6 +53,7 @@ const App = () => {
               <Route path="/services" element={<Services />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/careers" element={<Careers />} />
+              <Route path="/mosquito-mesh" element={<Mosquitomesh />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Layout>
