@@ -23,13 +23,11 @@ const Header = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 cursor-pointer">
-            <div className="w-10 h-10 bg-[var(--primary-color)] rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">S</span>
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-gray-900">SLA Invisible Grills</h1>
-              <p className="text-xs text-gray-600">Premium Protection Solutions</p>
-            </div>
+            <img 
+              src="/Logo.png" 
+              alt="SLA Invisible Grills Logo" 
+              className="h-12 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}

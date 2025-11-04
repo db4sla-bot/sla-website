@@ -161,8 +161,12 @@ const Home = () => {
             >
               <div className="bg-white rounded-2xl shadow-xl p-8">
                 <div className="text-center mb-8">
-                  <div className="w-20 h-20 bg-[var(--primary-color)] rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-3xl text-white font-bold">SLA</span>
+                  <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <img 
+                      src="/Logo.png" 
+                      alt="SLA Invisible Grills Logo" 
+                      className="w-16 h-16 object-contain"
+                    />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Est. 2024</h3>
                   <p className="text-gray-600">Nellore, Andhra Pradesh</p>

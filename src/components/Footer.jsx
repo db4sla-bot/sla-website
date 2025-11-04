@@ -26,10 +26,11 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-[var(--primary-color)] rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold">S</span>
-              </div>
-              <span className="text-xl font-bold">SLA Invisible Grills</span>
+              <img 
+                src="/Logo.png" 
+                alt="SLA Invisible Grills Logo" 
+                className="h-10 w-auto"
+              />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
               Premium protection solutions for your home and office. We specialize in invisible grills, 
