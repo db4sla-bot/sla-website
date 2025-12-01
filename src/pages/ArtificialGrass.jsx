@@ -230,7 +230,7 @@ const ArtificialGrass = () => {
             >
               <div className="relative bg-white/10 backdrop-blur-sm rounded-3xl p-6 lg:p-8 shadow-2xl max-w-lg w-full">
                 <img 
-                  src="/api/placeholder/500/400" 
+                  src="https://ik.imagekit.io/67x2srjsy/Website/Images/Artificial%20Grass/AG1.webp" 
                   alt="Artificial Grass" 
                   className="w-full h-auto rounded-2xl shadow-lg"
                 />
@@ -354,7 +354,7 @@ const ArtificialGrass = () => {
               viewport={{ once: true }}
             >
               <img 
-                src="/api/placeholder/600/500" 
+                src="https://ik.imagekit.io/67x2srjsy/Website/Images/Artificial%20Grass/AG2.jpg" 
                 alt="Artificial Grass Benefits" 
                 className="w-full h-auto rounded-2xl shadow-2xl"
               />

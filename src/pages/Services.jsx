@@ -31,7 +31,7 @@ const Services = () => {
       ],
       applications: ['Balconies', 'Windows', 'Terraces', 'Staircases', 'Swimming Pool Areas'],
       icon: '🏠',
-      image: '/api/placeholder/600/400',
+      image: 'https://ik.imagekit.io/67x2srjsy/Website/Hero%20Slider/2.jpg?updatedAt=1762091645902',
       link: '/services/invisible-grills'
     },
     {
@@ -56,7 +56,7 @@ const Services = () => {
       ],
       applications: ['Doors', 'Windows', 'Balcony Openings', 'Ventilation Areas'],
       icon: '🦟',
-      image: '/api/placeholder/600/400',
+      image: 'https://ik.imagekit.io/67x2srjsy/Website/Hero%20Slider/Pleated%20Mosquito%20Mesh.png?updatedAt=1764586406547',
       link: '/services/mosquito-mesh'
     },
     {
@@ -81,7 +81,7 @@ const Services = () => {
       ],
       applications: ['Balconies', 'Utility Areas', 'Terraces', 'Laundry Rooms'],
       icon: '👕',
-      image: '/api/placeholder/600/400',
+      image: 'https://ik.imagekit.io/67x2srjsy/Website/Hero%20Slider/Ceiling%20Cloth%20Hangers.png?updatedAt=1764586423550',
       link: '/services/cloth-hangers'
     },
     {
@@ -106,7 +106,7 @@ const Services = () => {
       ],
       applications: ['Balconies', 'Terraces', 'Gardens', 'Play Areas', 'Indoor Decoration'],
       icon: '🌱',
-      image: '/api/placeholder/600/400',
+      image: 'https://ik.imagekit.io/67x2srjsy/Website/Images/Artificial%20Grass/AG1.webp',
       link: '/services/artificial-grass'
     },
     {
@@ -131,7 +131,7 @@ const Services = () => {
       ],
       applications: ['Building Ledges', 'Rooftops', 'Signage', 'Air Conditioning Units', 'Balcony Railings'],
       icon: '🐦',
-      image: '/api/placeholder/600/400',
+      image: 'https://ik.imagekit.io/67x2srjsy/Website/Images/Bird%20Spikes/BS1.jpg',
       link: '/services/bird-spikes'
     }
   ];
@@ -252,14 +252,12 @@ const Services = () => {
 
                 {/* Image Placeholder */}
                 <div className={`${serviceIndex % 2 === 1 ? 'lg:order-1' : ''}`}>
-                  <div className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-6 sm:p-8 h-64 sm:h-80 lg:h-96 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="text-5xl sm:text-6xl lg:text-8xl mb-3 sm:mb-4">{service.icon}</div>
-                      <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-2">
-                        {service.title}
-                      </h3>
-                      <p className="text-sm sm:text-base text-gray-600">Professional Installation Available</p>
-                    </div>
+                  <div className="rounded-2xl overflow-hidden shadow-xl">
+                    <img 
+                      src={service.image} 
+                      alt={service.title}
+                      className="w-full h-64 sm:h-80 lg:h-96 object-cover"
+                    />
                   </div>
                 </div>
               </div>

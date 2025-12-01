@@ -15,31 +15,36 @@ const Home = () => {
       title: 'Invisible Grills',
       description: 'Premium quality invisible grills for balconies, windows, and terraces. Transparent protection without compromising your view.',
       icon: '🏠',
-      features: ['Transparent Design', 'Weather Resistant', 'Easy Maintenance', 'Custom Fitting']
+      features: ['Transparent Design', 'Weather Resistant', 'Easy Maintenance', 'Custom Fitting'],
+      link: '/services/invisible-grills'
     },
     {
       title: 'Mosquito Mesh',
       description: 'High-quality mosquito mesh solutions for doors and windows. Keep insects out while maintaining proper ventilation.',
       icon: '🦟',
-      features: ['Fine Mesh Quality', 'Durable Material', 'Custom Sizes', 'Easy Installation']
+      features: ['Fine Mesh Quality', 'Durable Material', 'Custom Sizes', 'Easy Installation'],
+      link: '/services/mosquito-mesh'
     },
     {
       title: 'Cloth Hangers',
       description: 'Modern and sturdy cloth hanging solutions for balconies and utility areas. Maximize your drying space efficiently.',
       icon: '👕',
-      features: ['Space Efficient', 'Weather Proof', 'Multiple Configurations', 'Premium Quality']
+      features: ['Space Efficient', 'Weather Proof', 'Multiple Configurations', 'Premium Quality'],
+      link: '/services/cloth-hangers'
     },
     {
       title: 'Artificial Grass',
       description: 'Transform your spaces with premium artificial grass. Perfect for balconies, terraces, and indoor decorative areas.',
       icon: '🌱',
-      features: ['Natural Look', 'Low Maintenance', 'UV Resistant', 'Eco-Friendly']
+      features: ['Natural Look', 'Low Maintenance', 'UV Resistant', 'Eco-Friendly'],
+      link: '/services/artificial-grass'
     },
     {
       title: 'Bird Spikes',
       description: 'Humane bird control solutions for buildings and structures. Prevent bird nesting without harming them.',
       icon: '🐦',
-      features: ['Humane Solution', 'Durable Material', 'Weather Resistant', 'Easy Installation']
+      features: ['Humane Solution', 'Durable Material', 'Weather Resistant', 'Easy Installation'],
+      link: '/services/bird-spikes'
     }
   ];
 
@@ -560,7 +565,7 @@ const Home = () => {
                     ))}
                   </ul>
                   <Link
-                    to="/services"
+                    to={service.link}
                     className="inline-flex items-center text-[var(--primary-color)] hover:text-blue-800 font-medium cursor-pointer"
                   >
                     Learn More

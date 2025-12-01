@@ -188,7 +188,7 @@ const Mosquitomesh = () => {
               <div className="relative bg-white/10 backdrop-blur-sm rounded-3xl p-6 lg:p-8 shadow-2xl max-w-lg w-full">
                 <div className="relative overflow-hidden rounded-2xl">
                   <img 
-                    src="/api/placeholder/500/400" 
+                    src="https://ik.imagekit.io/67x2srjsy/Website/Hero%20Slider/Pleated%20Mosquito%20Mesh.png?updatedAt=1764586406547" 
                     alt="Premium Mosquito Mesh Installation" 
                     className="w-full h-auto object-cover shadow-lg"
                   />
@@ -278,7 +278,7 @@ const Mosquitomesh = () => {
               className="relative"
             >
               <img 
-                src="/api/placeholder/600/500" 
+                src="https://ik.imagekit.io/67x2srjsy/Website/Hero%20Slider/Trackless%20Mosquito%20Mesh.png?updatedAt=1764586406527" 
                 alt="Mosquito Mesh Benefits" 
                 className="w-full h-auto rounded-2xl shadow-2xl"
               />

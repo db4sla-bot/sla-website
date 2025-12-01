@@ -244,7 +244,7 @@ const BirdSpikes = () => {
             >
               <div className="relative bg-white/10 backdrop-blur-sm rounded-3xl p-6 lg:p-8 shadow-2xl max-w-lg w-full">
                 <img 
-                  src="/api/placeholder/500/400" 
+                  src="https://ik.imagekit.io/67x2srjsy/Website/Images/Bird%20Spikes/BS1.jpg" 
                   alt="Bird Spikes Installation" 
                   className="w-full h-auto rounded-2xl shadow-lg"
                 />
@@ -395,7 +395,7 @@ const BirdSpikes = () => {
               viewport={{ once: true }}
             >
               <img 
-                src="/api/placeholder/600/500" 
+                src="https://ik.imagekit.io/67x2srjsy/Website/Images/Bird%20Spikes/BS2.webp" 
                 alt="Bird Spikes Benefits" 
                 className="w-full h-auto rounded-2xl shadow-2xl"
               />

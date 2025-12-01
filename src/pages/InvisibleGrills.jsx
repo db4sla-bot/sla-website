@@ -211,7 +211,7 @@ const InvisibleGrills = () => {
               <div className="relative bg-white/10 backdrop-blur-sm rounded-3xl p-6 lg:p-8 shadow-2xl max-w-lg w-full">
                 <div className="relative overflow-hidden rounded-2xl">
                   <img 
-                    src="/api/placeholder/500/400" 
+                    src="https://ik.imagekit.io/67x2srjsy/Website/Hero%20Slider/Desktop/Vertical%20Balcony.png?updatedAt=1764587270282" 
                     alt="Invisible Grills Installation" 
                     className="w-full h-auto object-cover shadow-lg"
                   />
@@ -297,7 +297,7 @@ const InvisibleGrills = () => {
               className="relative"
             >
               <img 
-                src="/api/placeholder/600/500" 
+                src="https://ik.imagekit.io/67x2srjsy/Website/Hero%20Slider/2.jpg?updatedAt=1762091645902" 
                 alt="Invisible Grills Benefits" 
                 className="w-full h-auto rounded-2xl shadow-2xl"
               />
