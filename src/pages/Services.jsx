@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import OurProcess from '../components/OurProcess';
 import SiteVisitModal from '../components/SiteVisitModal';
 import { ModalContext } from '../App';
@@ -30,7 +31,8 @@ const Services = () => {
       ],
       applications: ['Balconies', 'Windows', 'Terraces', 'Staircases', 'Swimming Pool Areas'],
       icon: '🏠',
-      image: '/api/placeholder/600/400'
+      image: '/api/placeholder/600/400',
+      link: '/services/invisible-grills'
     },
     {
       title: 'Mosquito Mesh',
@@ -54,7 +56,8 @@ const Services = () => {
       ],
       applications: ['Doors', 'Windows', 'Balcony Openings', 'Ventilation Areas'],
       icon: '🦟',
-      image: '/api/placeholder/600/400'
+      image: '/api/placeholder/600/400',
+      link: '/services/mosquito-mesh'
     },
     {
       title: 'Cloth Hangers',
@@ -78,7 +81,8 @@ const Services = () => {
       ],
       applications: ['Balconies', 'Utility Areas', 'Terraces', 'Laundry Rooms'],
       icon: '👕',
-      image: '/api/placeholder/600/400'
+      image: '/api/placeholder/600/400',
+      link: '/services/cloth-hangers'
     },
     {
       title: 'Artificial Grass',
@@ -102,7 +106,8 @@ const Services = () => {
       ],
       applications: ['Balconies', 'Terraces', 'Gardens', 'Play Areas', 'Indoor Decoration'],
       icon: '🌱',
-      image: '/api/placeholder/600/400'
+      image: '/api/placeholder/600/400',
+      link: '/services/artificial-grass'
     },
     {
       title: 'Bird Spikes',
@@ -126,7 +131,8 @@ const Services = () => {
       ],
       applications: ['Building Ledges', 'Rooftops', 'Signage', 'Air Conditioning Units', 'Balcony Railings'],
       icon: '🐦',
-      image: '/api/placeholder/600/400'
+      image: '/api/placeholder/600/400',
+      link: '/services/bird-spikes'
     }
   ];
 
@@ -231,6 +237,16 @@ const Services = () => {
                         </span>
                       ))}
                     </div>
+                  </div>
+
+                  {/* Explore More Button */}
+                  <div>
+                    <Link
+                      to={service.link}
+                      className="inline-block bg-[var(--primary-color)] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                    >
+                      Explore More
+                    </Link>
                   </div>
                 </div>
 
