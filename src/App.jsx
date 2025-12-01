@@ -12,6 +12,8 @@ import NotFound from './pages/NotFound';
 import Mosquitomesh from './pages/Mosquitomesh';
 import InvisibleGrills from './pages/InvisibleGrills';
 import ClothHangers from './pages/ClothHangers';
+import ArtificialGrass from './pages/ArtificialGrass';
+import BirdSpikes from './pages/BirdSpikes';
 
 // Create context for modal state
 export const ModalContext = createContext();
@@ -56,6 +58,8 @@ const App = () => {
               <Route path="/services/invisible-grills" element={<InvisibleGrills />} />
               <Route path="/services/mosquito-mesh" element={<Mosquitomesh />} />
               <Route path="/services/cloth-hangers" element={<ClothHangers />} />
+              <Route path="/services/artificial-grass" element={<ArtificialGrass />} />
+              <Route path="/services/bird-spikes" element={<BirdSpikes />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/careers" element={<Careers />} />
               <Route path="/mosquito-mesh" element={<Mosquitomesh />} />
