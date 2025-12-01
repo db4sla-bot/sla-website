@@ -10,10 +10,6 @@ import { ModalContext } from '../App';
 const Home = () => {
   const { isSiteVisitModalOpen, closeSiteVisitModal } = useContext(ModalContext);
 
-
-
-
-
   const services = [
     {
       title: 'Invisible Grills',

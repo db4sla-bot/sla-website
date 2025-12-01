@@ -1,73 +1,93 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 const VideoSlider = () => {
-  const [activeVideo, setActiveVideo] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [swiperInstance, setSwiperInstance] = useState(null);
+  const iframeRefs = useRef([]);
+
+  // Helper function to extract YouTube video ID from URL
+  const getYouTubeVideoId = (url) => {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=|shorts\/)([^#&?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length === 11) ? match[2] : null;
+  };
+
+  // Helper function to get YouTube thumbnail
+  const getYouTubeThumbnail = (url) => {
+    const videoId = getYouTubeVideoId(url);
+    return videoId ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg` : null;
+  };
 
   const videos = [
     {
       id: 1,
       title: "Invisible Grills Installation Process",
       description: "Watch how our expert technicians install premium invisible grills with precision and care.",
-      thumbnail: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4", // Sample video URL
+      youtubeUrl: "https://youtube.com/shorts/y2ieKQ5P4Bw", // Replace with your actual YouTube URL
       duration: "2:45",
-      category: "Installation",
-      fallbackIcon: "🎬"
+      category: "Installation"
     },
     {
       id: 2,
       title: "Mosquito Mesh Benefits",
       description: "Discover the advantages of our high-quality mosquito mesh solutions for your home.",
-      thumbnail: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      videoUrl: "https://www.w3schools.com/html/movie.mp4", // Sample video URL
+      youtubeUrl: "https://youtube.com/shorts/tyBdSB4Vevs", // Replace with your actual YouTube URL
       duration: "1:30",
-      category: "Benefits",
-      fallbackIcon: "🏡"
+      category: "Benefits"
     },
     {
       id: 3,
       title: "Customer Testimonials",
       description: "Hear from our satisfied customers about their experience with SLA Invisible Grills.",
-      thumbnail: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4", // Sample video URL
+      youtubeUrl: "https://youtube.com/shorts/c6YgVE_CNsI", // Replace with your actual YouTube URL
       duration: "3:20",
-      category: "Testimonials",
-      fallbackIcon: "👥"
+      category: "Testimonials"
     },
     {
       id: 4,
       title: "Before & After Transformations",
       description: "See the amazing transformations of homes with our protection solutions.",
-      thumbnail: "https://images.unsplash.com/photo-1558904541-efa843a96f01?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      videoUrl: "https://www.w3schools.com/html/movie.mp4", // Sample video URL
+      youtubeUrl: "https://youtube.com/shorts/qUXvKgCJ3fQ", // Replace with your actual YouTube URL
       duration: "2:15",
-      category: "Showcase",
-      fallbackIcon: "✨"
+      category: "Showcase"
     },
     {
       id: 5,
       title: "Maintenance Guide",
       description: "Learn how easy it is to maintain your invisible grills and mesh installations.",
-      thumbnail: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4", // Sample video URL
+      youtubeUrl: "https://youtube.com/shorts/UBFiXOkaKw8", // Replace with your actual YouTube URL
       duration: "1:45",
-      category: "Guide",
-      fallbackIcon: "🔧"
+      category: "Guide"
     }
   ];
 
-  // Auto-play video slider
+  // Stop all videos when slide changes
   useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveVideo((prev) => (prev + 1) % videos.length);
-    }, 6000); // Change video every 6 seconds
+    iframeRefs.current.forEach((iframe, index) => {
+      if (iframe && index !== activeIndex) {
+        // Stop non-active videos by reloading iframe src
+        const currentSrc = iframe.src;
+        iframe.src = currentSrc;
+      }
+    });
+  }, [activeIndex]);
 
-    return () => clearInterval(timer);
-  }, [videos.length]);
+  const handleSlideChange = (swiper) => {
+    setActiveIndex(swiper.realIndex);
+  };
 
-  const handleVideoClick = (index) => {
-    setActiveVideo(index);
+  const goToSlide = (index) => {
+    if (swiperInstance) {
+      swiperInstance.slideToLoop(index);
+    }
   };
 
   return (
@@ -84,176 +104,163 @@ const VideoSlider = () => {
             See Our Work in Action
           </h2>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-            Watch our installation process, customer stories, and see the quality that makes us Hyderabad's trusted protection solution provider.
+            Watch our installation process, customer stories, and see the quality that makes us the trusted protection solution provider.
           </p>
         </motion.div>
 
-        <div className="flex justify-center">
-          {/* Main Video Player - Full Width */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="max-w-4xl w-full"
+        {/* Swiper Video Slider */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="max-w-5xl mx-auto relative"
+        >
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={30}
+            slidesPerView={1}
+            navigation={{
+              prevEl: '.swiper-button-prev-custom',
+              nextEl: '.swiper-button-next-custom',
+            }}
+            pagination={{
+              clickable: true,
+              dynamicBullets: true,
+            }}
+            autoplay={false}
+            speed={800}
+            loop={true}
+            onSwiper={setSwiperInstance}
+            onSlideChange={handleSlideChange}
+            className="rounded-2xl overflow-hidden shadow-2xl"
           >
-            <div className="relative bg-gray-800 rounded-2xl overflow-hidden shadow-2xl">
-              {/* Video Container */}
-              <div className="relative aspect-video overflow-hidden">
-                {videos.map((video, index) => (
-                  <motion.div
-                    key={video.id}
-                    className={`absolute inset-0 ${index === activeVideo ? 'z-10' : 'z-0'}`}
-                    initial={{ x: index === 0 ? 0 : '100%' }}
-                    animate={{ 
-                      x: index === activeVideo ? '0%' : 
-                         index < activeVideo ? '-100%' : '100%' 
-                    }}
-                    transition={{ 
-                      type: "tween",
-                      ease: "easeInOut", 
-                      duration: 0.8 
-                    }}
-                  >
-                    <video
-                      src={video.videoUrl}
-                      poster={video.thumbnail}
-                      controls
+            {videos.map((video, index) => {
+              const videoId = getYouTubeVideoId(video.youtubeUrl);
+
+              return (
+                <SwiperSlide key={video.id}>
+                  <div className="relative bg-gray-800">
+                    {/* YouTube Video Embed */}
+                    <div className="relative aspect-video">
+                      <iframe
+                        ref={(el) => (iframeRefs.current[index] = el)}
+                        src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&enablejsapi=1`}
+                        title={video.title}
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        className="w-full h-full"
+                      />
+                      
+                      {/* Category Badge */}
+                      <div className="absolute top-4 left-4 z-10">
+                        <span className="bg-[var(--primary-color)] text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
+                          {video.category}
+                        </span>
+                      </div>
+                    </div>
+                    
+                    {/* Video Info */}
+                    {/* <div className="p-6 lg:p-8 bg-gray-800">
+                      <h3 className="text-xl lg:text-2xl font-bold text-white mb-3">
+                        {video.title}
+                      </h3>
+                      <p className="text-gray-300 mb-4 leading-relaxed">
+                        {video.description}
+                      </p>
+                      <div className="flex items-center justify-between flex-wrap gap-4">
+                        <div className="flex items-center space-x-4">
+                          <span className="text-sm text-gray-400 flex items-center">
+                            <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            {video.duration}
+                          </span>
+                        </div>
+                        <a
+                          href={video.youtubeUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="bg-[var(--primary-color)] text-white px-6 py-2 rounded-lg hover:bg-[var(--primary-color)]/90 transition-all duration-300 font-medium text-sm flex items-center space-x-2"
+                        >
+                          <span>Watch on YouTube</span>
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </svg>
+                        </a>
+                      </div>
+                    </div> */}
+                  </div>
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+
+          {/* Custom Navigation Buttons */}
+          <button 
+            className="swiper-button-prev-custom absolute left-2 lg:left-4 top-[35%] -translate-y-1/2 z-20 bg-black/50 hover:bg-black/70 text-white p-2 lg:p-3 rounded-full transition-all duration-300 cursor-pointer hover:scale-110 backdrop-blur-sm"
+            aria-label="Previous video"
+          >
+            <svg className="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button 
+            className="swiper-button-next-custom absolute right-2 lg:right-4 top-[35%] -translate-y-1/2 z-20 bg-black/50 hover:bg-black/70 text-white p-2 lg:p-3 rounded-full transition-all duration-300 cursor-pointer hover:scale-110 backdrop-blur-sm"
+            aria-label="Next video"
+          >
+            <svg className="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          {/* Video Thumbnail Navigation */}
+          {/* <div className="mt-8 grid grid-cols-5 gap-2 lg:gap-4">
+            {videos.map((video, index) => {
+              const videoId = getYouTubeVideoId(video.youtubeUrl);
+              const thumbnail = getYouTubeThumbnail(video.youtubeUrl);
+              
+              return (
+                <button
+                  key={video.id}
+                  onClick={() => goToSlide(index)}
+                  className={`relative group cursor-pointer rounded-lg overflow-hidden transition-all duration-300 ${
+                    activeIndex === index 
+                      ? 'ring-4 ring-[var(--primary-color)] scale-105' 
+                      : 'hover:scale-105 opacity-70 hover:opacity-100'
+                  }`}
+                >
+                  <div className="aspect-video bg-gray-700">
+                    <img
+                      src={thumbnail}
+                      alt={video.title}
                       className="w-full h-full object-cover"
                       onError={(e) => {
                         e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'flex';
                       }}
                     />
-                    {/* Fallback thumbnail */}
-                    <div 
-                      className="hidden w-full h-full bg-gradient-to-br from-primary-500 to-primary-700 items-center justify-center relative"
-                    >
-                      <img
-                        src={video.thumbnail}
-                        alt={video.title}
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          e.target.style.display = 'none';
-                          e.target.nextSibling.style.display = 'flex';
-                        }}
-                      />
-                      <div className="hidden w-full h-full bg-gradient-to-br from-primary-500 to-primary-700 items-center justify-center absolute inset-0">
-                        <div className="text-center text-white">
-                          <div className="text-8xl mb-4">{video.fallbackIcon}</div>
-                          <h3 className="text-xl font-bold mb-2">{video.title}</h3>
-                          <p className="text-sm text-blue-100">{video.duration}</p>
-                        </div>
-                      </div>
-                      {/* Play Button Overlay */}
-                      <motion.div
-                        whileHover={{ scale: 1.1 }}
-                        className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 cursor-pointer"
-                      >
-                        <div className="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                          <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8 5v14l11-7z"/>
-                          </svg>
-                        </div>
-                      </motion.div>
+                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+                      <svg className="w-6 h-6 lg:w-8 lg:h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
                     </div>
-                  </motion.div>
-                ))}
-                
-                {/* Category Badge */}
-                <div className="absolute top-4 left-4 z-20">
-                  <span className="bg-primary-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    {videos[activeVideo].category}
-                  </span>
-                </div>
-                
-                {/* Video Navigation Arrows */}
-                <button
-                  onClick={() => setActiveVideo((prev) => (prev - 1 + videos.length) % videos.length)}
-                  className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-2 rounded-full transition-all duration-300 cursor-pointer hover:scale-110"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
-                </button>
-                
-                <button
-                  onClick={() => setActiveVideo((prev) => (prev + 1) % videos.length)}
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-2 rounded-full transition-all duration-300 cursor-pointer hover:scale-110"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-              </div>
-              
-              {/* Video Info */}
-              <div className="p-6 text-center">
-                <motion.h3
-                  key={activeVideo}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="text-2xl font-bold text-white mb-3"
-                >
-                  {videos[activeVideo].title}
-                </motion.h3>
-                <motion.p
-                  key={`desc-${activeVideo}`}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  className="text-gray-300 mb-6 max-w-2xl mx-auto"
-                >
-                  {videos[activeVideo].description}
-                </motion.p>
-                <div className="flex items-center justify-center space-x-6">
-                  <button className="bg-primary-500 text-white px-6 py-3 rounded-lg hover:bg-primary-600 transition-all duration-300 cursor-pointer transform hover:scale-105 font-medium">
-                    Watch Full Video
-                  </button>
-                  <div className="flex items-center space-x-4">
-                    <button className="text-gray-300 hover:text-white transition-colors cursor-pointer hover:scale-110">
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                      </svg>
-                    </button>
-                    <button className="text-gray-300 hover:text-white transition-colors cursor-pointer hover:scale-110">
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z" />
-                      </svg>
-                    </button>
-                    <span className="text-sm text-gray-400">
-                      {videos[activeVideo].duration}
-                    </span>
                   </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Video Navigation Dots */}
-            <div className="flex justify-center mt-6 space-x-2">
-              {videos.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveVideo(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer ${
-                    activeVideo === index 
-                      ? 'bg-primary-500 scale-125' 
-                      : 'bg-gray-600 hover:bg-gray-500'
-                  }`}
-                />
-              ))}
-            </div>
-          </motion.div>
-        </div>
+                  {activeIndex === index && (
+                    <div className="absolute bottom-0 left-0 right-0 bg-[var(--primary-color)] h-1"></div>
+                  )}
+                </button>
+              );
+            })}
+          </div> */}
+        </motion.div>
 
         {/* Video Stats */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6"
+          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
         >
           {[
             { number: '500+', label: 'Happy Customers' },
@@ -272,6 +279,24 @@ const VideoSlider = () => {
           ))}
         </motion.div>
       </div>
+
+      {/* Custom Swiper Pagination Styles */}
+      <style jsx>{`
+        .swiper-pagination-bullet {
+          background: #6b7280;
+          opacity: 0.5;
+          width: 12px;
+          height: 12px;
+        }
+        .swiper-pagination-bullet-active {
+          background: var(--primary-color);
+          opacity: 1;
+        }
+        .swiper-button-prev-custom:hover,
+        .swiper-button-next-custom:hover {
+          transform: scale(1.1);
+        }
+      `}</style>
     </section>
   );
 };
