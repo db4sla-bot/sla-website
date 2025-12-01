@@ -166,7 +166,7 @@ const Header = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
-                className="fixed inset-0 bg-black bg-opacity-50 z-40"
+                className="fixed inset-0 bg-[rgba(0,0,0,0.5)] bg-opacity-50 z-40"
                 onClick={() => setIsMenuOpen(false)}
               />
               
