@@ -159,104 +159,135 @@ const Header = () => {
         {/* Mobile Menu */}
         <AnimatePresence>
           {isMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.2 }}
-              className="md:hidden overflow-hidden"
-            >
-              <nav className="py-4 space-y-2">
-                {navigation.map((item) => (
-                  <div key={item.name}>
-                    {item.hasDropdown ? (
-                      <div>
-                        <button
-                          onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
-                          className={`flex items-center justify-between w-full px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 ${
-                            isActive(item.path)
-                              ? 'bg-[var(--primary-color)] text-white'
-                              : 'text-gray-700 hover:bg-gray-100'
-                          }`}
-                        >
-                          <span>{item.name}</span>
-                          <svg 
-                            className={`w-4 h-4 transition-transform duration-200 ${isMobileServicesOpen ? 'rotate-180' : ''}`}
-                            fill="none" 
-                            stroke="currentColor" 
-                            viewBox="0 0 24 24"
+            <>
+              {/* Backdrop */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="fixed inset-0 bg-black bg-opacity-50 z-40"
+                onClick={() => setIsMenuOpen(false)}
+              />
+              
+              {/* Sliding Menu from Right */}
+              <motion.div
+                initial={{ x: '100%' }}
+                animate={{ x: 0 }}
+                exit={{ x: '100%' }}
+                transition={{ type: 'tween', duration: 0.3 }}
+                className="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl z-50 overflow-y-auto"
+              >
+                {/* Menu Header */}
+                <div className="flex items-center justify-between p-4 border-b">
+                  <img 
+                    src="/Logo.png" 
+                    alt="SLA Invisible Grills" 
+                    className="h-10 w-auto"
+                  />
+                  <button
+                    onClick={() => setIsMenuOpen(false)}
+                    className="p-2 rounded-md text-gray-700 hover:text-[var(--primary-color)] focus:outline-none cursor-pointer"
+                  >
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+
+                {/* Menu Content */}
+                <nav className="p-4 space-y-2">
+                  {navigation.map((item) => (
+                    <div key={item.name}>
+                      {item.hasDropdown ? (
+                        <div>
+                          <button
+                            onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+                            className={`flex items-center justify-between w-full px-4 py-3 text-base font-medium rounded-lg transition-colors duration-200 ${
+                              isActive(item.path)
+                                ? 'bg-[var(--primary-color)] text-white'
+                                : 'text-gray-700 hover:bg-gray-100'
+                            }`}
                           >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                          </svg>
-                        </button>
-                        
-                        {/* Mobile Services Accordion */}
-                        <AnimatePresence>
-                          {isMobileServicesOpen && (
-                            <motion.div
-                              initial={{ opacity: 0, height: 0 }}
-                              animate={{ opacity: 1, height: 'auto' }}
-                              exit={{ opacity: 0, height: 0 }}
-                              transition={{ duration: 0.2 }}
-                              className="ml-4 mt-2 space-y-1 overflow-hidden"
+                            <span>{item.name}</span>
+                            <svg 
+                              className={`w-5 h-5 transition-transform duration-200 ${isMobileServicesOpen ? 'rotate-180' : ''}`}
+                              fill="none" 
+                              stroke="currentColor" 
+                              viewBox="0 0 24 24"
                             >
-                              {services.map((service) => (
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            </svg>
+                          </button>
+                          
+                          {/* Mobile Services Accordion */}
+                          <AnimatePresence>
+                            {isMobileServicesOpen && (
+                              <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: 'auto' }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{ duration: 0.2 }}
+                                className="ml-2 mt-2 space-y-1 overflow-hidden"
+                              >
+                                {services.map((service) => (
+                                  <Link
+                                    key={service.path}
+                                    to={service.path}
+                                    className="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors duration-200"
+                                    onClick={() => {
+                                      setIsMenuOpen(false);
+                                      setIsMobileServicesOpen(false);
+                                    }}
+                                  >
+                                    <span className="text-2xl mr-3">{service.icon}</span>
+                                    <div>
+                                      <div className="font-medium text-gray-900 text-sm">{service.name}</div>
+                                      <div className="text-xs text-gray-500">{service.desc}</div>
+                                    </div>
+                                  </Link>
+                                ))}
                                 <Link
-                                  key={service.path}
-                                  to={service.path}
-                                  className="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors duration-200"
+                                  to="/services"
+                                  className="block p-3 text-sm text-[var(--primary-color)] font-medium hover:bg-gray-50 rounded-lg"
                                   onClick={() => {
                                     setIsMenuOpen(false);
                                     setIsMobileServicesOpen(false);
                                   }}
                                 >
-                                  <span className="text-xl mr-3">{service.icon}</span>
-                                  <div>
-                                    <div className="font-medium text-gray-900 text-sm">{service.name}</div>
-                                    <div className="text-xs text-gray-500">{service.desc}</div>
-                                  </div>
+                                  View All Services →
                                 </Link>
-                              ))}
-                              <Link
-                                to="/services"
-                                className="block p-3 text-sm text-[var(--primary-color)] font-medium hover:bg-gray-50 rounded-lg"
-                                onClick={() => {
-                                  setIsMenuOpen(false);
-                                  setIsMobileServicesOpen(false);
-                                }}
-                              >
-                                View All Services →
-                              </Link>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-                    ) : (
-                      <Link
-                        to={item.path}
-                        className={`block px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 cursor-pointer ${
-                          isActive(item.path)
-                            ? 'bg-[var(--primary-color)] text-white'
-                            : 'text-gray-700 hover:bg-gray-100'
-                        }`}
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                    )}
-                  </div>
-                ))}
-                <button
-                  onClick={() => {
-                    setIsMenuOpen(false);
-                    openSiteVisitModal();
-                  }}
-                  className="block mx-4 mt-4 px-4 py-2 bg-[var(--primary-color)] text-white text-center rounded-lg hover:bg-opacity-90 transition-all duration-200 text-sm font-medium cursor-pointer w-[calc(100%-2rem)]"
-                >
-                  Free Site Visit
-                </button>
-              </nav>
-            </motion.div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      ) : (
+                        <Link
+                          to={item.path}
+                          className={`block px-4 py-3 text-base font-medium rounded-lg transition-colors duration-200 cursor-pointer ${
+                            isActive(item.path)
+                              ? 'bg-[var(--primary-color)] text-white'
+                              : 'text-gray-700 hover:bg-gray-100'
+                          }`}
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          {item.name}
+                        </Link>
+                      )}
+                    </div>
+                  ))}
+                  <button
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      openSiteVisitModal();
+                    }}
+                    className="w-full mt-6 px-4 py-3 bg-[var(--primary-color)] text-white text-center rounded-lg hover:bg-opacity-90 transition-all duration-200 text-base font-medium cursor-pointer"
+                  >
+                    Free Site Visit
+                  </button>
+                </nav>
+              </motion.div>
+            </>
           )}
         </AnimatePresence>
       </div>
