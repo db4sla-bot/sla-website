@@ -239,7 +239,7 @@ const OurProcess = () => {
                 href="tel:+919885012999"
                 className="border-2 border-[var(--primary-color)] text-[var(--primary-color)] px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-sm sm:text-base hover:bg-[var(--primary-color)] hover:text-white transition-all duration-300 transform hover:scale-105 cursor-pointer"
               >
-                Call: +91 98850 1299
+                Call: +91 9885 012 999
               </a>
             </div>
           </div>

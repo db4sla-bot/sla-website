@@ -33,9 +33,9 @@ const Header = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 cursor-pointer">
-            <img 
-              src="/Logo.png" 
-              alt="SLA Invisible Grills Logo" 
+            <img style={{width: '266px', height: '64px'}}
+              src="/Logo.png"
+              alt="SLA Invisible Grills Logo"
               className="h-12 w-auto"
             />
           </Link>

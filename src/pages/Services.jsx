@@ -358,7 +358,7 @@ const Services = () => {
                 href="tel:+919885012999"
                 className="border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-white hover:text-[var(--primary-color)] transition-all duration-300 transform hover:scale-105 cursor-pointer"
               >
-                Call: +91 98850 1299
+                Call: +91 9885 012 999
               </a>
             </div>
           </motion.div>

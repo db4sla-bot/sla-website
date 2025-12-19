@@ -258,7 +258,7 @@ const Contact = () => {
                       <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-1 sm:mb-2">Phone</h3>
                       <p className="text-sm sm:text-base text-gray-600 mb-1 sm:mb-2">Call us for immediate assistance</p>
                       <a href="tel:+919885012999" className="text-[var(--primary-color)] font-medium hover:underline text-sm sm:text-base cursor-pointer">
-                        +91 98850 1299
+                        +91 9885 012 999
                       </a>
                     </div>
                   </div>
@@ -275,8 +275,8 @@ const Contact = () => {
                     <div>
                       <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-1 sm:mb-2">Email</h3>
                       <p className="text-sm sm:text-base text-gray-600 mb-1 sm:mb-2">Send us your detailed requirements</p>
-                      <a href="mailto:slainvisiblegrills@gmail.com" className="text-[var(--primary-color)] font-medium hover:underline text-sm sm:text-base cursor-pointer">
-                        slainvisiblegrills@gmail.com
+                      <a href="mailto:slainvisiblegrill@gmail.com" className="text-[var(--primary-color)] font-medium hover:underline text-sm sm:text-base cursor-pointer">
+                        slainvisiblegrill@gmail.com
                       </a>
                     </div>
                   </div>
