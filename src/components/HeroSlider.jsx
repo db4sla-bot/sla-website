@@ -86,7 +86,7 @@ const HeroSlider = () => {
   ];
 
   return (
-    <div className="relative overflow-hidden" style={{ height: '80vh' }}>
+    <div className="relative overflow-hidden" style={{ height: '68vh' }}>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         navigation
@@ -106,10 +106,7 @@ const HeroSlider = () => {
                   backgroundImage: `url('${slide.desktopImage}')`,
                   backgroundColor: '#1f2937'
                 }}
-              >
-                {/* Overlay */}
-                <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}></div>
-              </div>
+              />
               
               {/* Background Image - Mobile */}
               <div 
@@ -118,38 +115,7 @@ const HeroSlider = () => {
                   backgroundImage: `url('${slide.mobileImage}')`,
                   backgroundColor: '#1f2937'
                 }}
-              >
-                {/* Overlay */}
-                <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}></div>
-              </div>
-
-              {/* Content */}
-              <div className="relative z-10 h-full flex items-center">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                  <div className="text-center text-white">
-                    {/* Title */}
-                    <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-8 lg:mb-12 text-shadow leading-tight">
-                      {slide.title}
-                    </h1>
-                    
-                    {/* Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                      <Link
-                        to={slide.buttonLink}
-                        className="bg-white text-[var(--primary-color)] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg text-center cursor-pointer min-w-[200px]"
-                      >
-                        {slide.buttonLabel}
-                      </Link>
-                      <button
-                        onClick={openSiteVisitModal}
-                        className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-[var(--primary-color)] transition-all duration-300 transform hover:scale-105 text-center cursor-pointer min-w-[200px]"
-                      >
-                        Book Free Site Visit
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              />
             </div>
           </SwiperSlide>
         ))}
@@ -177,6 +143,14 @@ const HeroSlider = () => {
         .swiper-button-prev:after {
           font-size: 14px;
           font-weight: bold;
+        }
+
+        /* Hide navigation arrows on mobile and tablet */
+        @media (max-width: 1023px) {
+          .swiper-button-next,
+          .swiper-button-prev {
+            display: none;
+          }
         }
         
         .swiper-pagination-bullet {

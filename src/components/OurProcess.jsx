@@ -93,8 +93,8 @@ const OurProcess = () => {
 
         {/* Process Flow */}
         <div className="relative">
-          {/* Curved Road Path */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          {/* Curved Road Path - Hidden on Mobile */}
+          <div className="hidden md:block absolute inset-0 flex items-center justify-center pointer-events-none">
             <svg 
               viewBox="0 0 800 1400" 
               className="w-full max-w-lg lg:max-w-xl h-auto opacity-60"
@@ -163,7 +163,7 @@ const OurProcess = () => {
           </div>
 
           {/* Process Steps */}
-          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
             {processSteps.map((step, index) => (
               <motion.div
                 key={step.id}
@@ -199,14 +199,24 @@ const OurProcess = () => {
                   </div>
                 </div>
 
-                {/* Arrow for flow indication */}
+                {/* Arrow for flow indication - Desktop and Mobile */}
                 {index < processSteps.length - 1 && (
-                  <div className={`
-                    hidden md:block absolute top-1/2 transform -translate-y-1/2
-                    ${index % 2 === 0 ? '-right-8 lg:-right-10' : '-left-8 lg:-left-10'}
-                  `}>
-                    <div className="w-6 h-6 bg-[var(--primary-color)] rotate-45 shadow-lg"></div>
-                  </div>
+                  <>
+                    {/* Desktop Arrow (side arrow) */}
+                    <div className={`
+                      hidden md:block absolute top-1/2 transform -translate-y-1/2
+                      ${index % 2 === 0 ? '-right-8 lg:-right-10' : '-left-8 lg:-left-10'}
+                    `}>
+                      <div className="w-6 h-6 bg-[var(--primary-color)] rotate-45 shadow-lg"></div>
+                    </div>
+                    
+                    {/* Mobile Arrow (bottom arrow) */}
+                    <div className="md:hidden flex justify-center mt-4">
+                      <svg className="w-8 h-8 text-[var(--primary-color)]" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 3a1 1 0 01.707.293l7 7a1 1 0 01-1.414 1.414L11 6.414V17a1 1 0 11-2 0V6.414l-5.293 5.293a1 1 0 01-1.414-1.414l7-7A1 1 0 0110 3z" clipRule="evenodd" transform="rotate(180 10 10)" />
+                      </svg>
+                    </div>
+                  </>
                 )}
               </motion.div>
             ))}
