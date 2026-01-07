@@ -13,9 +13,7 @@ const Header = () => {
   const services = [
     { name: 'Invisible Grills', path: '/services/invisible-grills', icon: '🔒', desc: 'Premium safety grills' },
     { name: 'Mosquito Mesh', path: '/services/mosquito-mesh', icon: '🦟', desc: 'Insect protection' },
-    { name: 'Cloth Hangers', path: '/services/cloth-hangers', icon: '👕', desc: 'Drying solutions' },
-    { name: 'Artificial Grass', path: '/services/artificial-grass', icon: '🌱', desc: 'Natural looking turf' },
-    { name: 'Bird Spikes', path: '/services/bird-spikes', icon: '🐦', desc: 'Humane bird control' }
+    { name: 'Cloth Hangers', path: '/services/cloth-hangers', icon: '👕', desc: 'Drying solutions' }
   ];
 
   const navigation = [

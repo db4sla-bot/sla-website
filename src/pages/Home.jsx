@@ -31,20 +31,6 @@ const Home = () => {
       icon: '👕',
       features: ['Space Efficient', 'Weather Proof', 'Multiple Configurations', 'Premium Quality'],
       link: '/services/cloth-hangers'
-    },
-    {
-      title: 'Artificial Grass',
-      description: 'Transform your spaces with premium artificial grass. Perfect for balconies, terraces, and indoor decorative areas.',
-      icon: '🌱',
-      features: ['Natural Look', 'Low Maintenance', 'UV Resistant', 'Eco-Friendly'],
-      link: '/services/artificial-grass'
-    },
-    {
-      title: 'Bird Spikes',
-      description: 'Humane bird control solutions for buildings and structures. Prevent bird nesting without harming them.',
-      icon: '🐦',
-      features: ['Humane Solution', 'Durable Material', 'Weather Resistant', 'Easy Installation'],
-      link: '/services/bird-spikes'
     }
   ];
 
@@ -60,12 +46,6 @@ const Home = () => {
       location: 'Magunta Layout, Nellore',
       rating: 5,
       text: 'Very professional service. The mosquito mesh works perfectly and the installation was done without any mess. Great experience!'
-    },
-    {
-      name: 'Venkat Reddy',
-      location: 'Vidya Nagar, Nellore',
-      rating: 5,
-      text: 'Amazing quality artificial grass! It looks so natural and has completely transformed our terrace. Worth every penny!'
     }
   ];
 
@@ -269,62 +249,31 @@ const Home = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               {
-                icon: (
-                  <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                ),
-                title: "Kids Safety",
-                description: "Invisible grills provide strong protection, especially in high-rise buildings. They prevent accidental falls, making them ideal for homes with children and pets."
+                text: "Kids safety with strong protection against accidental falls"
               },
               {
-                icon: (
-                  <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M3 6a3 3 0 013-3h10a1 1 0 01.8 1.6L14.25 8l2.55 3.4A1 1 0 0116 13H6a1 1 0 00-1 1v3a1 1 0 11-2 0V6z" clipRule="evenodd" />
-                  </svg>
-                ),
-                title: "Anti Rust",
-                description: "Made from high-tensile stainless steel, the grills are rustproof and weather-resistant. This ensures durability and a long-lasting, clean appearance."
+                text: "Anti-rust with high-tensile stainless steel construction"
               },
               {
-                icon: (
-                  <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
-                  </svg>
-                ),
-                title: "Anti Bird",
-                description: "The grills act as a barrier against birds, preventing them from sitting, entering, or nesting in your balconies or windows. This keeps your space clean and hygienic."
+                text: "Anti-bird barrier — keeps balconies clean and hygienic"
               },
               {
-                icon: (
-                  <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
-                    <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
-                  </svg>
-                ),
-                title: "Panoramic View",
-                description: "The slim, almost invisible wires allow for an uninterrupted outside view. You enjoy full visibility and natural light without compromising on safety."
+                text: "Panoramic view with uninterrupted visibility"
               },
               {
-                icon: (
-                  <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z" clipRule="evenodd" />
-                  </svg>
-                ),
-                title: "Fire Evacuation Friendly",
-                description: "In case of emergencies like fire, the wires can be cut quickly to allow safe evacuation. This feature adds an extra layer of safety during critical times."
+                text: "Fire evacuation friendly for emergency situations"
               },
               {
-                icon: (
-                  <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
-                  </svg>
-                ),
-                title: "Low Maintenance",
-                description: "Invisible grills require no painting, polishing, or regular cleaning. Once installed, they stay neat and functional with minimal effort."
+                text: "Low maintenance — no painting or polishing required"
+              },
+              {
+                text: "Weather-resistant for long-lasting durability"
+              },
+              {
+                text: "Designed for modern homes and high-rise buildings"
               }
             ].map((feature, index) => (
               <motion.div
@@ -333,13 +282,18 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-all duration-300 text-center"
+                className="bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50 rounded-xl p-6 flex items-start gap-4 hover:shadow-xl hover:scale-105 transition-all duration-300 border border-teal-100"
               >
-                <div className="text-[var(--primary-color)] mb-6 flex justify-center">
-                  {feature.icon}
+                <div className="flex-shrink-0 mt-0.5">
+                  <div className="w-7 h-7 rounded-full bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center shadow-md">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                <p className="text-gray-700 leading-relaxed text-sm font-medium">
+                  {feature.text}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -364,12 +318,13 @@ const Home = () => {
             </p>
           </motion.div>
 
+          {/* Desktop Table View */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="bg-white rounded-2xl shadow-xl overflow-hidden"
+            className="hidden lg:block bg-white rounded-2xl shadow-xl overflow-hidden"
           >
             <div className="overflow-x-auto">
               <table className="w-full">
@@ -518,6 +473,80 @@ const Home = () => {
               </table>
             </div>
           </motion.div>
+
+          {/* Mobile Card View */}
+          <div className="lg:hidden space-y-6">
+            {[
+              {
+                feature: "Rust Proof",
+                sla: { status: "✓ Yes", statusColor: "bg-green-100 text-green-800", desc: "Made with 316 Marine Grade stainless steel, entirely rust-proof and suitable for coastal regions." },
+                traditional: { status: "✗ No", statusColor: "bg-red-100 text-red-800", desc: "Being made of iron, they can rust over time on continuous exposure to sun and moisture, affecting longevity." }
+              },
+              {
+                feature: "Weather Proof",
+                sla: { status: "✓ Yes", statusColor: "bg-green-100 text-green-800", desc: "Made with 316 Marine Grade stainless steel, entirely weather-proof and suitable for coastal regions." },
+                traditional: { status: "✗ No", statusColor: "bg-red-100 text-red-800", desc: "Being made of iron, they can rust over time on continuous exposure to sun and moisture, affecting longevity." }
+              },
+              {
+                feature: "Kids Safety",
+                sla: { status: "Safe", statusColor: "bg-green-100 text-green-800", desc: "Made with 100% chemical free materials, completely safe for kids to play with. Safe even if kids/pets fancy licking them." },
+                traditional: { status: "Unsafe", statusColor: "bg-red-100 text-red-800", desc: "These grills rust easily and paint can be seen chipping off from exterior. Can be harmful for kids to play with and almost fatal when ingested." }
+              },
+              {
+                feature: "View Design",
+                sla: { status: "Great unobstructed view", statusColor: "bg-green-100 text-green-800", desc: "Being only 2mm in diameter, you can enjoy an unhindered view from your high rise building windows or balconies." },
+                traditional: { status: "Spoils your view", statusColor: "bg-red-100 text-red-800", desc: "Being thick in nature, they prevent you from enjoying the panoramic view from your window or balcony." }
+              },
+              {
+                feature: "Maintenance",
+                sla: { status: "Hassle-free", statusColor: "bg-green-100 text-green-800", desc: "You can easily clean without using any cloth by merely pulling the strings of the grill to jerk off the dust." },
+                traditional: { status: "Tough to maintain", statusColor: "bg-red-100 text-red-800", desc: "The only way to clean your grills is by wiping with a piece of cloth or some other duster, making it a tedious job." }
+              },
+              {
+                feature: "Fire Safety",
+                sla: { status: "Safe", statusColor: "bg-green-100 text-green-800", desc: "In case of a fire, you can easily evacuate by cutting the cables using a wire cutter." },
+                traditional: { status: "Hard To Cut", statusColor: "bg-red-100 text-red-800", desc: "Does not serve as an emergency exit at all during a fire or any other mishap." }
+              },
+              {
+                feature: "Interior Looks",
+                sla: { status: "Superior", statusColor: "bg-green-100 text-green-800", desc: "Believe it or not, invisible grills enhance your home's interiors and are aesthetically stylish, giving a modern look to your space." },
+                traditional: { status: "Outdated", statusColor: "bg-red-100 text-red-800", desc: "Being traditional in nature, they don't improve the face value of your space. Additionally, they make your balcony and windows boring and outdated." }
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-xl shadow-lg overflow-hidden"
+              >
+                <div className="bg-[var(--primary-color)] text-white px-4 py-3">
+                  <h3 className="font-semibold text-lg">{item.feature}</h3>
+                </div>
+                <div className="p-4 space-y-4">
+                  <div className="bg-green-50 rounded-lg p-4 border-l-4 border-green-500">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-xs font-semibold text-gray-600">SLA Invisible Grills</span>
+                    </div>
+                    <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${item.sla.statusColor} mb-2`}>
+                      {item.sla.status}
+                    </span>
+                    <p className="text-sm text-gray-700 mt-2">{item.sla.desc}</p>
+                  </div>
+                  <div className="bg-red-50 rounded-lg p-4 border-l-4 border-red-500">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-xs font-semibold text-gray-600">Traditional Grills</span>
+                    </div>
+                    <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${item.traditional.statusColor} mb-2`}>
+                      {item.traditional.status}
+                    </span>
+                    <p className="text-sm text-gray-700 mt-2">{item.traditional.desc}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 

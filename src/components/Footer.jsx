@@ -8,8 +8,7 @@ const Footer = () => {
     'Invisible Grills',
     'Mosquito Mesh',
     'Cloth Hangers',
-    'Artificial Grass',
-    'Bird Spikes'
+
   ];
 
   const quickLinks = [

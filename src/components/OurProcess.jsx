@@ -7,70 +7,54 @@ const OurProcess = () => {
       id: 1,
       title: 'Consultation',
       description: 'Initial discussion to understand your requirements and provide expert advice',
-      icon: '👥',
-      color: 'bg-blue-100',
-      iconColor: 'text-blue-600'
+      icon: '�'
     },
     {
       id: 2,
       title: 'Site Visit & Material Samples',
       description: 'Professional site assessment and material sample presentation',
-      icon: '🏠',
-      color: 'bg-green-100',
-      iconColor: 'text-green-600'
+      icon: '🏠'
     },
     {
       id: 3,
       title: 'Tailor-made Solutions & Quotation',
       description: 'Customized solutions designed specifically for your needs with detailed pricing',
-      icon: '📋',
-      color: 'bg-purple-100',
-      iconColor: 'text-purple-600'
+      icon: '📋'
     },
     {
       id: 4,
       title: 'Materials & Design Confirmation',
       description: 'Final confirmation of materials, design specifications, and project timeline',
-      icon: '✅',
-      color: 'bg-orange-100',
-      iconColor: 'text-orange-600'
+      icon: '✅'
     },
     {
       id: 5,
       title: 'Final Quotation',
       description: 'Comprehensive final quotation with all details and terms',
-      icon: '💰',
-      color: 'bg-yellow-100',
-      iconColor: 'text-yellow-600'
+      icon: '💰'
     },
     {
       id: 6,
       title: 'Installation & Warranty',
       description: 'Professional installation by certified technicians with comprehensive warranty',
-      icon: '🔧',
-      color: 'bg-red-100',
-      iconColor: 'text-red-600'
+      icon: '🔧'
     },
     {
       id: 7,
       title: 'Handover',
       description: 'Project completion, quality check, and formal handover to customer',
-      icon: '🎯',
-      color: 'bg-indigo-100',
-      iconColor: 'text-indigo-600'
+      icon: '🎯'
     },
     {
       id: 8,
       title: 'Customer Support',
       description: 'Ongoing support and maintenance services for complete peace of mind',
-      icon: '🤝',
-      color: 'bg-teal-100',
-      iconColor: 'text-teal-600'
+      icon: '🤝'
     }
   ];
 
   return (
-    <section className="py-12 sm:py-16 lg:py-24 bg-gray-50">
+    <section className="py-12 sm:py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-blue-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -80,7 +64,7 @@ const OurProcess = () => {
           viewport={{ once: true }}
           className="text-center mb-12 sm:mb-16"
         >
-          <div className="inline-block bg-yellow-400 text-black px-6 sm:px-8 py-2 sm:py-3 rounded-full font-bold text-lg sm:text-xl mb-6 sm:mb-8 shadow-lg">
+          <div className="inline-block bg-[#0A647D] text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-bold text-lg sm:text-xl mb-6 sm:mb-8 shadow-lg">
             OUR PROCESS
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
@@ -91,133 +75,67 @@ const OurProcess = () => {
           </p>
         </motion.div>
 
-        {/* Process Flow */}
-        <div className="relative">
-          {/* Curved Road Path - Hidden on Mobile */}
-          <div className="hidden md:block absolute inset-0 flex items-center justify-center pointer-events-none">
-            <svg 
-              viewBox="0 0 800 1400" 
-              className="w-full max-w-lg lg:max-w-xl h-auto opacity-60"
-              style={{ maxHeight: '1000px' }}
-            >
-              {/* Main Road */}
-              <path
-                d="M400 80 
-                   C 180 180, 180 240, 400 320
-                   C 620 400, 620 480, 400 560
-                   C 180 640, 180 720, 400 800
-                   C 620 880, 620 960, 400 1040
-                   C 180 1120, 180 1200, 400 1280"
-                stroke="#374151"
-                strokeWidth="50"
-                fill="none"
-              />
-              {/* Road Center Line */}
-              <path
-                d="M400 80 
-                   C 180 180, 180 240, 400 320
-                   C 620 400, 620 480, 400 560
-                   C 180 640, 180 720, 400 800
-                   C 620 880, 620 960, 400 1040
-                   C 180 1120, 180 1200, 400 1280"
-                stroke="#FBBF24"
-                strokeWidth="4"
-                fill="none"
-                strokeDasharray="30 20"
-              />
-              {/* Road Edges */}
-              <path
-                d="M400 80 
-                   C 180 180, 180 240, 400 320
-                   C 620 400, 620 480, 400 560
-                   C 180 640, 180 720, 400 800
-                   C 620 880, 620 960, 400 1040
-                   C 180 1120, 180 1200, 400 1280"
-                stroke="#1F2937"
-                strokeWidth="6"
-                fill="none"
-                transform="translate(-22, 0)"
-              />
-              <path
-                d="M400 80 
-                   C 180 180, 180 240, 400 320
-                   C 620 400, 620 480, 400 560
-                   C 180 640, 180 720, 400 800
-                   C 620 880, 620 960, 400 1040
-                   C 180 1120, 180 1200, 400 1280"
-                stroke="#1F2937"
-                strokeWidth="6"
-                fill="none"
-                transform="translate(22, 0)"
-              />
-              {/* Road Markers */}
-              <circle cx="400" cy="140" r="8" fill="#EF4444" opacity="0.8"/>
-              <circle cx="300" cy="220" r="8" fill="#EF4444" opacity="0.8"/>
-              <circle cx="500" cy="380" r="8" fill="#EF4444" opacity="0.8"/>
-              <circle cx="300" cy="520" r="8" fill="#EF4444" opacity="0.8"/>
-              <circle cx="500" cy="680" r="8" fill="#EF4444" opacity="0.8"/>
-              <circle cx="300" cy="820" r="8" fill="#EF4444" opacity="0.8"/>
-              <circle cx="500" cy="980" r="8" fill="#EF4444" opacity="0.8"/>
-              <circle cx="400" cy="1120" r="8" fill="#EF4444" opacity="0.8"/>
-            </svg>
-          </div>
+        {/* Timeline */}
+        <div className="relative max-w-5xl mx-auto">
+          {/* Vertical Line - Hidden on Mobile */}
+          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-[#99CFDF] via-[#339FBF] to-[#0A647D]"></div>
+
+          {/* Mobile Vertical Line */}
+          <div className="md:hidden absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-[#99CFDF] via-[#339FBF] to-[#0A647D]"></div>
 
           {/* Process Steps */}
-          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
+          <div className="relative space-y-8 sm:space-y-12">
             {processSteps.map((step, index) => (
               <motion.div
                 key={step.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className={`
-                  relative bg-white rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 card-hover mb-6 lg:mb-8
-                  ${index % 2 === 0 ? 'md:mr-12 lg:mr-16' : 'md:ml-12 lg:ml-16'}
-                `}
+                className={`relative flex items-center ${
+                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                } flex-row`}
               >
-                {/* Step Number */}
-                <div className="absolute -top-3 -left-3 w-8 h-8 sm:w-10 sm:h-10 bg-[var(--primary-color)] text-white rounded-full flex items-center justify-center font-bold text-sm sm:text-base shadow-lg">
-                  {step.id}
+                {/* Content Card */}
+                <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:pr-8 lg:pr-12' : 'md:pl-8 lg:pl-12'} pl-16 md:pl-0`}>
+                  <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 border-l-4 border-[#0A647D]">
+                    <div className="flex items-start gap-4">
+                      {/* Icon */}
+                      <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#339FBF] to-[#0A647D] rounded-xl flex items-center justify-center text-2xl shadow-md">
+                        {step.icon}
+                      </div>
+                      
+                      {/* Text */}
+                      <div className="flex-1">
+                        <h3 className="text-lg font-bold text-gray-900 mb-2">
+                          {step.title}
+                        </h3>
+                        <p className="text-sm text-gray-600 leading-relaxed">
+                          {step.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
-                {/* Content */}
-                <div className="flex items-start space-x-3 sm:space-x-4">
-                  {/* Icon */}
-                  <div className={`${step.color} ${step.iconColor} w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center text-xl sm:text-2xl flex-shrink-0`}>
-                    {step.icon}
-                  </div>
-
-                  {/* Text Content */}
-                  <div className="flex-1">
-                    <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-2">
-                      {step.title}
-                    </h3>
-                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                      {step.description}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Arrow for flow indication - Desktop and Mobile */}
-                {index < processSteps.length - 1 && (
-                  <>
-                    {/* Desktop Arrow (side arrow) */}
-                    <div className={`
-                      hidden md:block absolute top-1/2 transform -translate-y-1/2
-                      ${index % 2 === 0 ? '-right-8 lg:-right-10' : '-left-8 lg:-left-10'}
-                    `}>
-                      <div className="w-6 h-6 bg-[var(--primary-color)] rotate-45 shadow-lg"></div>
+                {/* Center Circle/Node */}
+                <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center z-10">
+                  <div className="relative">
+                    {/* Outer Ring */}
+                    <div className="w-16 h-16 bg-gradient-to-br from-[#339FBF] to-[#0A647D] rounded-full flex items-center justify-center shadow-lg ring-4 ring-white relative z-20">
+                      {/* Step Number */}
+                      <span className="text-white font-bold text-xl z-30">
+                        {step.id}
+                      </span>
                     </div>
                     
-                    {/* Mobile Arrow (bottom arrow) */}
-                    <div className="md:hidden flex justify-center mt-4">
-                      <svg className="w-8 h-8 text-[var(--primary-color)]" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 3a1 1 0 01.707.293l7 7a1 1 0 01-1.414 1.414L11 6.414V17a1 1 0 11-2 0V6.414l-5.293 5.293a1 1 0 01-1.414-1.414l7-7A1 1 0 0110 3z" clipRule="evenodd" transform="rotate(180 10 10)" />
-                      </svg>
-                    </div>
-                  </>
-                )}
+                    {/* Pulse Animation */}
+                    <div className="absolute inset-0 rounded-full bg-[#339FBF] animate-ping opacity-20 z-10"></div>
+                  </div>
+                </div>
+
+                {/* Empty Space for Alignment (Desktop) */}
+                <div className="hidden md:block md:w-5/12"></div>
               </motion.div>
             ))}
           </div>

@@ -20,8 +20,6 @@ const Contact = () => {
     'Invisible Grills',
     'Mosquito Mesh',
     'Cloth Hangers',
-    'Artificial Grass',
-    'Bird Spikes',
     'Multiple Services',
     'Other'
   ];

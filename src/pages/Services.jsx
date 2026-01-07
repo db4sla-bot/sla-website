@@ -83,56 +83,6 @@ const Services = () => {
       icon: '👕',
       image: 'https://ik.imagekit.io/67x2srjsy/Website/Hero%20Slider/Ceiling%20Cloth%20Hangers.png?updatedAt=1764586423550',
       link: '/services/cloth-hangers'
-    },
-    {
-      title: 'Artificial Grass',
-      subtitle: 'Premium Synthetic Lawn Solutions',
-      description: 'Transform your spaces with our realistic artificial grass that looks and feels like natural turf. Perfect for creating beautiful green spaces without the maintenance requirements of natural grass.',
-      features: [
-        'Natural grass appearance',
-        'Soft and comfortable texture',
-        'UV stabilized for color retention',
-        'Drainage backing system',
-        'Pet and child friendly',
-        'Easy installation process',
-        'Low maintenance requirements',
-        'Eco-friendly alternative'
-      ],
-      benefits: [
-        'Year-round green appearance',
-        'No watering or mowing needed',
-        'Allergy-free environment',
-        'Cost-effective long-term solution'
-      ],
-      applications: ['Balconies', 'Terraces', 'Gardens', 'Play Areas', 'Indoor Decoration'],
-      icon: '🌱',
-      image: 'https://ik.imagekit.io/67x2srjsy/Website/Images/Artificial%20Grass/AG1.webp',
-      link: '/services/artificial-grass'
-    },
-    {
-      title: 'Bird Spikes',
-      subtitle: 'Humane Bird Control Solutions',
-      description: 'Protect your property from bird-related issues with our humane bird spike systems. These spikes prevent birds from landing and nesting without causing harm, maintaining the cleanliness and integrity of your building.',
-      features: [
-        'Humane deterrent solution',
-        'Stainless steel construction',
-        'Weather resistant',
-        'Easy installation',
-        'Various spike configurations',
-        'Transparent base options',
-        'Long-lasting durability',
-        'Maintenance-free operation'
-      ],
-      benefits: [
-        'Prevents property damage',
-        'Maintains building cleanliness',
-        'Reduces health risks',
-        'Environmentally friendly'
-      ],
-      applications: ['Building Ledges', 'Rooftops', 'Signage', 'Air Conditioning Units', 'Balcony Railings'],
-      icon: '🐦',
-      image: 'https://ik.imagekit.io/67x2srjsy/Website/Images/Bird%20Spikes/BS1.jpg',
-      link: '/services/bird-spikes'
     }
   ];
 
