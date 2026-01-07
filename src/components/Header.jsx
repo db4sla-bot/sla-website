@@ -6,7 +6,7 @@ import { ModalContext } from '../App';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(true);
   const location = useLocation();
   const { openSiteVisitModal } = useContext(ModalContext);
 
@@ -194,14 +194,14 @@ const Header = () => {
                 </div>
 
                 {/* Menu Content */}
-                <nav className="p-4 space-y-2">
+                <nav className="p-3 space-y-1">
                   {navigation.map((item) => (
                     <div key={item.name}>
                       {item.hasDropdown ? (
                         <div>
                           <button
                             onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
-                            className={`flex items-center justify-between w-full px-4 py-3 text-base font-medium rounded-lg transition-colors duration-200 ${
+                            className={`flex items-center justify-between w-full px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 ${
                               isActive(item.path)
                                 ? 'bg-[var(--primary-color)] text-white'
                                 : 'text-gray-700 hover:bg-gray-100'
@@ -209,7 +209,7 @@ const Header = () => {
                           >
                             <span>{item.name}</span>
                             <svg 
-                              className={`w-5 h-5 transition-transform duration-200 ${isMobileServicesOpen ? 'rotate-180' : ''}`}
+                              className={`w-4 h-4 transition-transform duration-200 ${isMobileServicesOpen ? 'rotate-180' : ''}`}
                               fill="none" 
                               stroke="currentColor" 
                               viewBox="0 0 24 24"
@@ -226,28 +226,28 @@ const Header = () => {
                                 animate={{ opacity: 1, height: 'auto' }}
                                 exit={{ opacity: 0, height: 0 }}
                                 transition={{ duration: 0.2 }}
-                                className="ml-2 mt-2 space-y-1 overflow-hidden"
+                                className="ml-1 mt-1 space-y-0.5 overflow-hidden"
                               >
                                 {services.map((service) => (
                                   <Link
                                     key={service.path}
                                     to={service.path}
-                                    className="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors duration-200"
+                                    className="flex items-center p-2 rounded-lg hover:bg-gray-50 transition-colors duration-200"
                                     onClick={() => {
                                       setIsMenuOpen(false);
                                       setIsMobileServicesOpen(false);
                                     }}
                                   >
-                                    <span className="text-2xl mr-3">{service.icon}</span>
+                                    <span className="text-xl mr-2">{service.icon}</span>
                                     <div>
-                                      <div className="font-medium text-gray-900 text-sm">{service.name}</div>
-                                      <div className="text-xs text-gray-500">{service.desc}</div>
+                                      <div className="font-medium text-gray-900 text-xs">{service.name}</div>
+                                      <div className="text-[10px] text-gray-500">{service.desc}</div>
                                     </div>
                                   </Link>
                                 ))}
                                 <Link
                                   to="/services"
-                                  className="block p-3 text-sm text-[var(--primary-color)] font-medium hover:bg-gray-50 rounded-lg"
+                                  className="block p-2 text-xs text-[var(--primary-color)] font-medium hover:bg-gray-50 rounded-lg"
                                   onClick={() => {
                                     setIsMenuOpen(false);
                                     setIsMobileServicesOpen(false);
@@ -262,7 +262,7 @@ const Header = () => {
                       ) : (
                         <Link
                           to={item.path}
-                          className={`block px-4 py-3 text-base font-medium rounded-lg transition-colors duration-200 cursor-pointer ${
+                          className={`block px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 cursor-pointer ${
                             isActive(item.path)
                               ? 'bg-[var(--primary-color)] text-white'
                               : 'text-gray-700 hover:bg-gray-100'
@@ -279,7 +279,7 @@ const Header = () => {
                       setIsMenuOpen(false);
                       openSiteVisitModal();
                     }}
-                    className="w-full mt-6 px-4 py-3 bg-[var(--primary-color)] text-white text-center rounded-lg hover:bg-opacity-90 transition-all duration-200 text-base font-medium cursor-pointer"
+                    className="w-full mt-4 px-3 py-2 bg-[var(--primary-color)] text-white text-center rounded-lg hover:bg-opacity-90 transition-all duration-200 text-sm font-medium cursor-pointer"
                   >
                     Free Site Visit
                   </button>
