@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import ScrollToTop from './ScrollToTop';
+import MobileBottomBar from './MobileBottomBar';
 
 const Layout = ({ children }) => {
   return (
@@ -11,7 +12,8 @@ const Layout = ({ children }) => {
         {children}
       </main>
       <Footer />
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
+      <MobileBottomBar />
     </div>
   );
 };

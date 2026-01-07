@@ -66,7 +66,7 @@ const App = () => {
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Layout>
-          <ScrollToTop />
+          {/* <ScrollToTop /> */}
         </Router>
       </ModalContext.Provider>
     </ErrorBoundary>
