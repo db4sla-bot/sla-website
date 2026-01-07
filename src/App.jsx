@@ -6,6 +6,7 @@ import ScrollToTopOnRouteChange from './components/ScrollToTopOnRouteChange';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import Services from './pages/Services';
+import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Careers from './pages/Careers';
 import NotFound from './pages/NotFound';
@@ -55,6 +56,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/services" element={<Services />} />
+              <Route path="/projects" element={<Projects />} />
               <Route path="/services/invisible-grills" element={<InvisibleGrills />} />
               <Route path="/services/mosquito-mesh" element={<Mosquitomesh />} />
               <Route path="/services/cloth-hangers" element={<ClothHangers />} />
