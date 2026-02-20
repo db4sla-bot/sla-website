@@ -1,14 +1,19 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import HeroSlider from '../components/HeroSlider';
 import VideoSlider from '../components/VideoSlider';
 import OurProcess from '../components/OurProcess';
 import SiteVisitModal from '../components/SiteVisitModal';
 import { ModalContext } from '../App';
+import IGImage from '../assets/ig1.webp'
+import MMImage from '../assets/mm1.webp'
+import CHImage from '../assets/ch1.jpg'
+import { image } from 'framer-motion/client';
 
 const Home = () => {
   const { isSiteVisitModalOpen, closeSiteVisitModal } = useContext(ModalContext);
+  const navigate = useNavigate();
 
   const services = [
     {
@@ -16,21 +21,24 @@ const Home = () => {
       description: 'Premium quality invisible grills for balconies, windows, and terraces. Transparent protection without compromising your view.',
       icon: '🏠',
       features: ['Transparent Design', 'Weather Resistant', 'Easy Maintenance', 'Custom Fitting'],
-      link: '/services/invisible-grills'
+      link: '/services/invisible-grills',
+      image: IGImage
     },
     {
       title: 'Mosquito Mesh',
       description: 'High-quality mosquito mesh solutions for doors and windows. Keep insects out while maintaining proper ventilation.',
       icon: '🦟',
       features: ['Fine Mesh Quality', 'Durable Material', 'Custom Sizes', 'Easy Installation'],
-      link: '/services/mosquito-mesh'
+      link: '/services/mosquito-mesh',
+      image: MMImage
     },
     {
       title: 'Cloth Hangers',
       description: 'Modern and sturdy cloth hanging solutions for balconies and utility areas. Maximize your drying space efficiently.',
       icon: '👕',
       features: ['Space Efficient', 'Weather Proof', 'Multiple Configurations', 'Premium Quality'],
-      link: '/services/cloth-hangers'
+      link: '/services/cloth-hangers',
+      image: CHImage
     }
   ];
 
@@ -67,6 +75,22 @@ const Home = () => {
     <div className="animate-fade-in">
       {/* Site Visit Modal - Auto display modal */}
       <SiteVisitModal isOpen={isSiteVisitModalOpen} onClose={closeSiteVisitModal} />
+
+      <div className="hero-services-circle">
+        {
+          services.map((service, index)=> {
+            return (
+              <div className="circles-services" key={index} onClick={()=>navigate(service.link)}>
+                  <span className="icon">
+                    <img src={service.image} alt="" />
+                  </span>
+                  <span className="name">{service.title}</span>
+              </div>
+            )
+          })
+        }
+        
+      </div>
       
       {/* Hero Slider */}
       <HeroSlider />
